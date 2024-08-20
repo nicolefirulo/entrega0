@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         listaAutos.products.forEach(product => {
           const productCard = document.createElement("div");
-          productCard.className = "col-md-4";
+          productCard.className = "pb-5 container";
   
           productCard.innerHTML = `
             <div class="card mb-4 shadow-sm custom-card cursor-active">
