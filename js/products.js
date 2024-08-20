@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
               <img class="bd-placeholder-img card-img-top" src="${product.image}" alt="${product.name}">
               <div class="card-body">
                 <h3 class="m-3">${product.name}</h3>
-                <p class="card-text"><strong>Descripción:</strong>${product.description}</p>
+                <p class="card-text"><strong>Descripción: </strong>${product.description}</p>
                 <p class="card-text"><strong>Costo:</strong> ${product.cost} ${product.currency}</p>
                 <p class="card-text"><strong>Vendidos:</strong> ${product.soldCount}</p>
               </div>
