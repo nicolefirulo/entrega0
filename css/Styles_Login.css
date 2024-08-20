@@ -1,0 +1,96 @@
+body{ 
+    background: url('../img/Fondo_login.webp');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-size: 100%;
+  }
+  
+  .container {
+    box-shadow: 2px 8px 6px #93929137;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 300px;
+    padding: 300px 400px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background-color: #f9bf7843;
+    margin-top: 20% ;
+    border-color: #f3ba5800;
+
+  }
+  
+  h1 {
+
+    text-align: center;
+    margin-bottom: 70px;
+    border-radius: 15px;
+    background-color: #ffd390;
+    max-width: 60%;
+    margin-left: 20%;
+    box-shadow: 4px 5px 5px #969695a7;
+    font-size: 70px;
+    color: #424045d6;
+}
+
+  
+  form {
+    display: flex;
+    flex-direction: column; 
+}
+  
+  input {
+    font-size: 30px;
+    background-color: #ffe4b1b6;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+  }
+
+  #username, #password { 
+    border-color: #cf894300;
+  }
+  
+  button {
+    padding: 20px;
+    background-color: #cfe8add8;
+    color: rgb(9, 0, 0);
+    box-shadow: 2px 3px 5px #939291;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;  
+    margin-left: 30%;
+    margin-top: 10%;
+    font-size: 30px;
+  
+  }
+
+  button:hover { 
+    padding: 22px;
+    background-color: #cef4ce;
+    border: 15px;
+    font-size: 35px;
+  }
+    
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e8ecb01d;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  a { 
+    text-decoration: none;
+    color: #052bb1
+  }
+
+  a:hover {
+    color: #0e0320;
+    font-size: 33px;
+  }
