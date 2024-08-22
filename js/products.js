@@ -16,18 +16,23 @@ document.addEventListener("DOMContentLoaded", function() {
           productCard.className = "pb-5 container";
   
           productCard.innerHTML = `
-            <div class="card mb-4 shadow-sm custom-card cursor-active">
-              <img class="bd-placeholder-img card-img-top" src="${product.image}" alt="${product.name}">
-              <div class="card-body">
-                <h3 class="m-3">${product.name}</h3>
-                <p class="card-text"><strong>Descripción: </strong>${product.description}</p>
-                <p class="card-text"><strong>Costo:</strong> ${product.cost} ${product.currency}</p>
-                <div class="vendidos-container">
-                <p class="card-text"><strong>Vendidos:</strong> ${product.soldCount}</p>
-              </div>
-            </div>
-          </div>
-          `;
+           <div class="card mb-4 shadow-sm custom-card cursor-active">
+           <div class="card-body d-flex align-items-start">
+           <div class="image-container">
+        <img class="product-image" src="${product.image}" alt="${product.name}">
+         </div>
+         <div class="text-container ml-3">
+           <h3 class="m-3">${product.name}</h3>
+           <p class="card-text"><strong>Descripción: </strong>${product.description}</p>
+           <p class="card-text"><strong>Costo:</strong> ${product.cost} ${product.currency}</p>
+           <div class="vendidos-container">
+           <p class="card-text"><strong>Vendidos:</strong> ${product.soldCount}</p>
+           </div>
+      </div>
+    </div>
+  </div>
+`;
+          
   
           productsContainer.appendChild(productCard);
         });
