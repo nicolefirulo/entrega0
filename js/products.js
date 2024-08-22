@@ -22,9 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h3 class="m-3">${product.name}</h3>
                 <p class="card-text"><strong>Descripción: </strong>${product.description}</p>
                 <p class="card-text"><strong>Costo:</strong> ${product.cost} ${product.currency}</p>
+                <div class="vendidos-container">
                 <p class="card-text"><strong>Vendidos:</strong> ${product.soldCount}</p>
               </div>
             </div>
+          </div>
           `;
   
           productsContainer.appendChild(productCard);

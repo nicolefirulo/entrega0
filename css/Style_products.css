@@ -1,0 +1,141 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column; 
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar .container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #fff ;
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1200px; 
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 100px; 
+    margin-bottom: 20px; 
+}
+
+h2.display-7 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 40px 0 20px 0; 
+    text-align: center;
+    color: #343a40;
+    padding: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px; 
+    box-sizing: border-box;
+    position: relative; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.card-body {
+    flex-grow: 1;
+    position: relative; 
+}
+
+.card-body h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card-body p {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.precio-auto {
+    width: 100%;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.vendidos-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px; 
+}
+
+.vendidos-auto {
+    font-size: 16px;
+    color: #6c757d;
+    padding: 5px;
+    margin: 0; 
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
