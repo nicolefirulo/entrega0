@@ -1,96 +1,154 @@
 body{ 
-    background: url('../img/Fondo_login.webp');
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-size: 100%;
-  }
-  
-  .container {
-    box-shadow: 2px 8px 6px #93929137;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    width: 300px;
-    padding: 300px 400px;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    background-color: #f9bf7843;
-    margin-top: 20% ;
-    border-color: #f3ba5800;
-
-  }
-  
-  h1 {
-
-    text-align: center;
-    margin-bottom: 70px;
-    border-radius: 15px;
-    background-color: #ffd390;
-    max-width: 60%;
-    margin-left: 20%;
-    box-shadow: 4px 5px 5px #969695a7;
-    font-size: 70px;
-    color: #424045d6;
+  background: url('../img/Fondo_login.webp');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
 }
 
-  
-  form {
-    display: flex;
-    flex-direction: column; 
+.container {
+  box-shadow: 2px 8px 6px #93929137;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 90%;
+  max-width: 500px;
+  padding: 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #f9bf7843;
+  margin-top: 5vh;
+  border-color: #f3ba5800;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  background-color: #ffd390;
+  padding: 10px;
+  width: 80%;
+  box-shadow: 4px 5px 5px #969695a7;
+  font-size: 2.5rem;
+  color: #424045d6;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input {
+  font-size: 1.2rem;
+  background-color: #ffe4b1b6;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#username, #password { 
+  border-color: #cf894300;
+}
+
+button {
+  padding: 15px;
+  background-color: #cfe8add8;
+  color: rgb(9, 0, 0);
+  box-shadow: 2px 3px 5px #939291;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;  
+  font-size: 1.2rem;
+  width: 60%;
+  margin: 0 auto;
+}
+
+button:hover { 
+  padding: 17px;
+  background-color: #cef4ce;
+  font-size: 1.3rem;
 }
   
-  input {
-    font-size: 30px;
-    background-color: #ffe4b1b6;
-    padding: 20px;
-    margin-bottom: 40px;
-    border-radius: 15px;
-  }
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e8ecb01d;
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
-  #username, #password { 
-    border-color: #cf894300;
-  }
+a:hover {
+  color: #0e0320;
+  font-size: 1.1rem;
+}
+
+.product-card {
+  display: flex;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #f9bf7843;
+  box-shadow: 2px 8px 6px #93929137;
+  position: relative; 
+  align-items: flex-start;
+}
+
+.image-container {
+  flex: 0 0 auto;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.product-image {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
   
-  button {
-    padding: 20px;
-    background-color: #cfe8add8;
-    color: rgb(9, 0, 0);
-    box-shadow: 2px 3px 5px #939291;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;  
-    margin-left: 30%;
-    margin-top: 10%;
-    font-size: 30px;
-  
-  }
+ }
 
-  button:hover { 
-    padding: 22px;
-    background-color: #cef4ce;
-    border: 15px;
-    font-size: 35px;
-  }
-    
-  footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #e8ecb01d;
-    padding: 20px;
-    font-size: 30px;
-  }
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-left: 20px;
+}
 
-  a { 
-    text-decoration: none;
-    color: #052bb1
-  }
+.text-container h3 {
+  margin: 0 0 5px 0; 
+  font-size: 24px;
+  color: #424045d6;
+}
 
-  a:hover {
-    color: #0e0320;
-    font-size: 33px;
-  }
+.text-container p {
+  margin: 3px 0; 
+  font-size: 18px;
+}
+
+.vendidos-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px; 
+  margin-bottom: 10px; 
+  text-align: right;
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+
+
+
