@@ -39,3 +39,13 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function login_check() {
+
+  if (localStorage.getItem("user") == null ){
+  window.location.href = "login.html";
+   }
+  
+}
+
+login_check();
