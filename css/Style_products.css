@@ -139,3 +139,33 @@ h2.display-7 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+
+@media (max-width: 768px) {
+    #products-container {
+        grid-template-columns: 1fr; 
+    }
+
+    .card {
+        max-width: 100%; 
+        padding: 15px; 
+    }
+
+    .card img {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .card-body h3 {
+        font-size: 20px; 
+        margin: 10px 0;
+    }
+
+    .card-body p {
+        font-size: 14px; 
+        margin: 5px 0;
+    }
+
+    .main-content {
+        padding: 10px; 
+    }
+}
