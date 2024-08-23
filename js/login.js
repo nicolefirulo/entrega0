@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let username = document.getElementById("username").value;
 
         if (username!= "" && password!= "") {
+            localStorage.setItem("user", username)
             window.location.href = "index.html";
         }
     });
 });
+
+
