@@ -13,8 +13,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center; 
-    width: 50px;
-    padding: 20px 130px;
+    width: 100px;
+    padding: 60px 200px;
     border: 1px solid #ccc;
     border-radius: 50px;
     background-color: #f9bf7843;
@@ -31,10 +31,10 @@ body{
     margin-top: 5%;
     border-radius: 15px;
     background-color: #ffd390;
-    max-width: 60%;
-    margin-left: 20%;
+    max-width: 50%;
+    margin-left: 25%;
     box-shadow: 2px 2px 8px #969695a7;
-    font-size: 25px;
+    font-size: 35px;
     color: #424045d6;
 }
 
@@ -45,9 +45,9 @@ body{
 }
   
   input {
-    font-size: 10px;
+    font-size: 13px;
     background-color: #ffe4b1b6;
-    padding: 7px;
+    padding: 5px 30px;
     border-radius: 15px;
     margin-bottom: 5px;
   }
@@ -57,7 +57,7 @@ body{
   }
   
   button {
-    padding: 5px;
+    padding: 8px;
     background-color: #cfe8add8;
     color: rgb(71, 66, 66);
     box-shadow: 1px 2px 6px #939291;
@@ -65,17 +65,17 @@ body{
     border-radius: 20px;
     cursor: pointer;  
     margin-left: 35%;
-    margin-top: 25px;
+    margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 12px;
+    font-size: 17px;
   
   }
 
   button:hover { 
-    padding: 5px;
+    padding: 7px;
     background-color: #cef4ce;
     border: 15px;
-    font-size: 15px;
+    font-size: 20px;
     color: black;
   }
     
@@ -86,7 +86,7 @@ body{
     right: 0;
     background-color: #e8ecb01d;
     padding: 5px;
-    font-size: 15px;
+    font-size: 12px;
   }
 
   a { 
@@ -96,5 +96,5 @@ body{
 
   a:hover {
     color: #0e0320;
-    font-size: 18px;
+    font-size: 15px;
   }
