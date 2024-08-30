@@ -5,9 +5,8 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .navbar {
@@ -31,27 +30,27 @@ body {
 }
 
 .nav-link {
-    color: #fff ;
+    color: #fff;
     font-size: 16px;
     padding: 0 15px;
 }
 
 .main-content {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     background-color: #fff;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    margin-top: 100px; 
-    margin-bottom: 20px; 
+    margin-top: 100px;
+    margin-bottom: 20px;
 }
 
 h2.display-7 {
     font-size: 48px;
     font-weight: 700;
-    margin: 40px 0 20px 0; 
+    margin: 40px 0 20px 0;
     text-align: center;
     color: #343a40;
     padding: 20px;
@@ -68,22 +67,21 @@ h2.display-7 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; 
+    gap: 10px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px; 
+    padding: 30px;
     border: 1px solid #dee2e6;
     background-color: white;
     border-radius: 8px;
     width: 100%;
-    max-width: 600px; 
+    max-width: 600px;
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
 }
 
 .card:hover {
@@ -92,10 +90,9 @@ h2.display-7 {
 }
 
 .card img {
-    max-width: 200px; 
+    max-width: 200px;
     border-radius: 5px;
-    margin-bottom: 20px;
-   
+
 }
 
 .card-body {
@@ -105,7 +102,7 @@ h2.display-7 {
 }
 
 .card-body h3 {
-    margin: 10px 0 5px 0; 
+    margin: 10px 0 5px 0;
     font-size: 24px;
     font-weight: 600;
 }
@@ -121,7 +118,7 @@ h2.display-7 {
     font-weight: 600;
     color: #343a40;
     margin-top: 5px;
-   
+
 }
 
 .vendidos-container {
@@ -143,44 +140,242 @@ h2.display-7 {
 
 @media (max-width: 768px) {
     #products-container {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
+
+        .card {
+            max-width: 100%;
+            padding: 15px;
+        }
+    }
+}
+
+.card {
+    max-width: 100%;
+    padding: 15px;
+}
+
+.card img {
+    height: auto;
+}
+
+.card-body h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.main-content {
+    padding: 10px;
+}
+
+.col-md-9 .card-body .vendidos-container,
+.col-sm-10 .card-body .vendidos-container,
+.col-lg-6 .card-body .vendidos-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.col-md-9 .card-body .vendidos-container p,
+.col-sm-10 .card-body .vendidos-container,
+.col-lg-6 .card-body .vendidos-container p {
+    padding-left: 0%;
+}
+
+.card-body {
+    flex: 0 0 auto;
+    padding: 0rem 0rem;
+}
+
+.card-text {
+    text-align: left;
+    padding-left: 2%;
+}
+
+.col-md-9 .card-body .card-text .precio-container,
+.col-sm-10 .card-body .card-text .precio-container,
+.col-lg-6 .card-body .card-text .precio-container {
+    position: absolute;
+    bottom: 0;
+}
+
+.col-md-9,
+.col-sm-10,
+.col-lg-6 {
+    align-self: center;
+}
+
+.pb-5 {
+    padding-bottom: 0rem !important;
+}
 
 
-    .card {
+h2.display-7 {
+    width: 30%;
+    height: 25%;
+    margin-top: 10%;
+}
+
+/*Chiquito*/
+@media (max-width: 575px) {
+
+    * {
         max-width: 100%;
-        padding: 15px;
     }
 
-    .card img {
-        max-width: 150px;
-    }
-}
-}
-
+    * main.col-md-6 {
+        max-width: 100%;
     }
 
-    .card {
-        max-width: 100%; 
-        padding: 15px; 
+    /*Body*/
+    body {
+        align-items: normal !important;
+        max-width: 100%;
     }
 
-    .card img {
-        max-width: 100%; 
-        height: auto; 
+    .row #products-container {
+        max-width: 100%;
     }
 
-    .card-body h3 {
-        font-size: 20px; 
-        margin: 10px 0;
+    .vendidos-container {
+        float: inline-end;
+        margin-top: 0 !important;
     }
 
     .card-body p {
-        font-size: 14px; 
-        margin: 5px 0;
+        color: #000;
+        font-weight: bold;
     }
 
-    .main-content {
-        padding: 10px; 
+    .vendidos-container p {
+        color: #424242;
+        font-weight: lighter;
+    }
+
+    .precio {
+        float: inline-start;
+    }
+
+    .card {
+        margin: 2%;
+    }
+
+    .card img {
+        max-width: 100%;
+        width: 100%;
+        padding-bottom: 0.1rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 0 !important;
+    }
+
+    .d-flex {
+        display: contents !important;
+    }
+
+    .pb-5 {
+        padding-bottom: 0% !important;
+        padding-left: var(--bs-gutter-x, .75rem);
+    }
+
+    /*Letra*/
+
+    .text-muted a,
+    .text-muted p {
+        font-size: .75rem;
+    }
+
+    h2.display-7 {
+        font-size: 1.2rem;
+        padding: 0.5em;
+        width: 15vh;
+        margin-top: 3rem;
+    }
+
+    .m-3 {
+        margin: 0% !important;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    div .text-center {
+        width: 25vh;
+        align-content: center;
+    }
+
+    h3.m-3 {
+        font-size: 1.25rem;
+        text-align: left;
+        font-weight: bold;
+        color: #000;
+        margin-top: 0%;
+    }
+
+}
+
+/*Barra de navegación*/
+.navbar {
+    padding: 1% !important;
+}
+
+.navbar-dark .navbar-nav .nav-link,
+#miPerfil {
+    color: rgb(249, 190, 120);
+    font-weight: bold;
+}
+
+/*quita el borde del icono*/
+.navbar-dark .navbar-toggler {
+    border-color: transparent;
+    padding: 0%;
+}
+
+/*icono de menu naranja */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(249,190,120)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-collapse {
+    flex-grow: 0.2;
+}
+
+.nav-item a:hover {
+    color: #CEE8AD !important;
+}
+
+/*Barra de navegación para resoluciones menores a 992px*/
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        width: 20vw;
+        top: 100%;
+        padding: 1%;
+        padding-left: 3%;
+        left: 0;
+        z-index: 1000;
+        background-color: #212529;
+    }
+
+    .nav-link {
+        padding: .50rem;
     }
 }
 
+@media (max-width: 575px) {
+    .navbar-collapse {
+        width: 27vw;
+    }
+}
+
+@media (max-width: 410px) {
+    .navbar-collapse {
+        width: 32vw;
+    }
+}
