@@ -42,8 +42,12 @@ let getJSONData = function(url){
 
 function login_check() {
 
+  let username = localStorage.getItem("user")
+
   if (localStorage.getItem("user") == null ){
   window.location.href = "login.html";
+   } else {
+    document.getElementById("miPerfil").innerHTML = username
    }
   
 }
