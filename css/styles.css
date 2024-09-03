@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 .jumbotron .display-4 {
@@ -187,4 +187,84 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+/*Barra de navegación*/
+.navbar {
+  padding: 1% !important;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #343a40;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.nav-link {
+  padding: 0 15px;
+  font-size: 16px;
+}
+.navbar-dark .navbar-nav .nav-link,
+#miPerfil  {
+  color: rgb(249, 190, 120);
+  font-weight: bold !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+  color: rgb(249, 190, 120);
+}
+
+/*quita el borde del icono*/
+.navbar-dark .navbar-toggler {
+  border-color: transparent;
+  padding: 0%;
+}
+
+/*icono de menu naranja */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(249,190,120)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-collapse {
+  flex-grow: 0.2;
+}
+
+.nav-item a:hover {
+  color: #CEE8AD !important;
+}
+
+/*Barra de navegación para resoluciones menores a 992px*/
+@media (max-width: 991px) {
+  .navbar-collapse {
+      position: absolute;
+      width: 20vw;
+      top: 100%;
+      padding: 1%;
+      padding-left: 3%;
+      left: 0;
+      z-index: 1000;
+      background-color: #212529;
+  }
+
+  .nav-link {
+      padding: .50rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .navbar-collapse {
+      width: 27vw;
+  }
+}
+
+@media (max-width: 410px) {
+  .navbar-collapse {
+      width: 32vw;
+  }
 }
