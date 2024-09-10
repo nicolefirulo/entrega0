@@ -1,0 +1,38 @@
+main {
+    margin-top: 60px;
+}
+
+#carousel-inner {
+    border: 1px solid red; /* Para ver los límites del contenedor */
+    width: 100%;
+}
+
+#carouselExampleInterval {
+    width: 40%;
+    float: left;
+}
+
+/* CSS para posicionar los botones */
+#carouselExampleInterval {
+    position: relative;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    z-index: 10; /* Botones por encima de las imágenes */
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
