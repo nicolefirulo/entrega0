@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
      
       products.forEach(product => {
           const productCard = document.createElement("div");
-          productCard.className = "pb-5 container";
+          productCard.className = "pb-5 container product-item";
+          productCard.dataset.productId = product.id;
 
           productCard.innerHTML = `
           <div class="card mb-4 shadow-sm custom-card cursor-active">
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
           productsContainer.appendChild(productCard);
       });
       document.querySelector('h2.display-7').textContent = catName;
+      selectedProduct();
   };
 
   getJSONData(PRODUCTS_URL +localStorage.getItem("catID")+ EXT_TYPE)
@@ -35,4 +37,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
           obtenerProducts(result.data.products, result.data.catName); 
       }
   });
+
+  //Guarda en localStorage el ID del producto seleccionado y redirige a product-info
+  function selectedProduct() {
+    let productItem = document.querySelectorAll(".product-item");
+    productItem.forEach(function (product) {
+      product.addEventListener("click", function() {
+        let idProduct = product.getAttribute("data-product-id");
+
+        localStorage.setItem("productID", idProduct);
+        window.location.href = "product-info.html";
+      })
+    })
+  }
 });
