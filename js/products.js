@@ -57,7 +57,7 @@ function showProductsList(){
     
     document.getElementById("products-container").innerHTML = htmlContentToAppend;
     document.querySelector('h2.display-7').textContent = catName;
-    
+    selectedProduct();
 }
 
 function sortAndShowProducts(sortCriteria, productsArray) {
@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             currentProductsArray = resultObj.data.products;
             catName = resultObj.data.catName; 
             showProductsList();
-            selectedProduct(); 
         }
     });
 
@@ -120,8 +119,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
         showProductsList();   
-        selectedProduct();
     });
+});
 
   //Guarda en localStorage el ID del producto seleccionado y redirige a product-info
   function selectedProduct() {
@@ -135,4 +134,3 @@ document.addEventListener("DOMContentLoaded", function(e){
       })
     })
   }
-});
