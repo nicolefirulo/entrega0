@@ -32,9 +32,9 @@ function showProductsList(){
         
         if (((minPrice == undefined) || (minPrice != undefined && parseFloat(product.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseFloat(product.cost) <= maxPrice))) {
-
+            
             htmlContentToAppend += `
-            <div class="pb-5 container">
+            <div class="pb-5 container" id="product-item" data-product-id="${product.id}">
                 <div class="card mb-4 shadow-sm custom-card cursor-active">
                     <div class="card-body d-flex align-items-start">
                         <div class="image-container">
@@ -54,8 +54,10 @@ function showProductsList(){
             `;
         }
     }
+    
     document.getElementById("products-container").innerHTML = htmlContentToAppend;
-    document.querySelector('h2.display-7').textContent = catName; 
+    document.querySelector('h2.display-7').textContent = catName;
+    selectedProduct(); 
 }
 
 function sortAndShowProducts(sortCriteria, productsArray) {
