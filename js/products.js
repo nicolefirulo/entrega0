@@ -23,11 +23,11 @@ function sortProducts(criteria, array) {
 }
 
 
-
-function showProductsList(){
+function showProductsList(products = currentProductsArray) {
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentProductsArray.length; i++){
-        let product = currentProductsArray[i];
+    for (let i = 0; i < products.length; i++) {
+        let product = products[i];
+    
 
         
         if (((minPrice == undefined) || (minPrice != undefined && parseFloat(product.cost) >= minPrice)) &&
@@ -66,7 +66,6 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
     showProductsList();
 }
-
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE).then(function(resultObj){
@@ -134,3 +133,19 @@ document.addEventListener("DOMContentLoaded", function(e){
       })
     })
   }
+
+
+// Filtrar y mostrar productos según el texto en la barra de búsqueda
+function filterProducts(searchTerm) {
+    let filteredProducts = currentProductsArray.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    
+    showProductsList(filteredProducts);
+}
+
+document.getElementById("searchBar").addEventListener("input", function() {
+    let searchTerm = this.value;
+    filterProducts(searchTerm);  
+});
