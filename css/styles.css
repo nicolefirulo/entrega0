@@ -272,3 +272,31 @@ a.custom-card:hover {
       width: 32vw;
   }
 }
+
+/* Botón Filtrar */
+#rangeFilterCount {
+  background-color: #f19933;
+  border-color: #df851e;
+  color: white;
+}
+
+#rangeFilterCount:hover {
+  background-color: #e67e22;
+  border-color: #e67e22;
+  color: #000000;
+}
+
+/* Botón Limpiar */
+#clearRangeFilter {
+  background-color: #facd8a;
+  color: #000000;
+  padding: 8px 12px;
+  text-decoration: none; 
+}
+
+#clearRangeFilter:hover {
+  background-color: #ffcf98;
+  border-color: #fc9d49;
+  color: #ffffff;
+  text-decoration: none; 
+}

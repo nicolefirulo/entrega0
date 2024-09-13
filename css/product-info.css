@@ -1,15 +1,26 @@
 main {
     margin-top: 60px;
+    padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 #carousel-inner {
-    border: 1px solid red; /* Para ver los límites del contenedor */
+    border: 1px solid #ff000000; /* Para ver los límites del contenedor */
     width: 100%;
+    border-radius: 10px;
 }
 
 #carouselExampleInterval {
     width: 40%;
     float: left;
+    margin-left: 0;
+    margin-right: 20px;
 }
 
 /* CSS para posicionar los botones */
@@ -35,4 +46,60 @@ main {
   .carousel-control-next {
     right: 10px;
   }
+  
+  .carousel {
+    margin-right: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-right: 20px;
+  }
+
+ .categoryName {
+   align-items: center !important;
+   font-size: 48px;
+   text-align: center;
+   color: #343a40;
+   padding: 10px;
+   border: 2px solid #dee2e6;
+   border-radius: 8px;
+   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+   background-color: #fff;
+   display: inline-block;
+   width: 30%;
+   margin-bottom: 20px;
+   margin-left: 90px;  
+ }
+
+.precio {
+  font-size: 18px;
+  font-weight: 600;
+  color: #343a40;
+  margin-top: 50px;
+  margin-right: 20px;
+
+}
+
+.vendidos {
+  color: #272829;
+  padding-left: 11px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center !important;
+  width: 150px;
+  margin: 0 1245px;
+  margin-top: -50px; 
+}
+
+.text-muted {
+  width: 150%;
+  padding: 2px 0; 
+  background-color: #f8f9fa; 
+  text-align: center;
+  position: fixed; 
+  bottom: 0;
+}
+
   

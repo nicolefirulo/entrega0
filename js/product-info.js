@@ -20,10 +20,17 @@ function showProduct(array) {
 
     let productINFO = '';
     productINFO += `
-    <h1> ${array.name} </h1>
+    <div class="categoryName">
+    <h1> ${array.category} </h1>
+    </div>
+    <h2> ${array.name} </h2>
     <p> ${array.description} </p>
+    <div class="precio">
     <p> Costo: ${array.cost} ${array.currency} </p>
+    </div>
+    <div class="vendidos">
     <p> Vendidos: ${array.soldCount} </p>
+    </div>
     `
     document.getElementById("info").innerHTML = productINFO;
 }

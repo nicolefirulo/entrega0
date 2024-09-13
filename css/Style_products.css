@@ -374,3 +374,58 @@ h2.display-7 {
         width: 32vw;
     }
 }
+
+.btn-block {
+    background-color: #f19933;
+    border-color: #df851e;
+    color: white;
+    margin-left: 10px;
+    
+}
+
+.btn-block:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
+}
+
+.btn-sm {
+    background-color: #facd8a;
+    color: #000000;
+    padding: 8px 12px;
+    text-decoration: none; 
+}
+
+.btn-sm:hover {
+    background-color: #ffcf98;
+    border-color: #fc9d49;
+    color: #ffffff;
+    text-decoration: none; 
+}
+
+#searchBar {
+    width: 95%;
+    flex-grow: 1;
+    margin-right: 250px; 
+    margin-bottom: 5px;
+  }
+
+#minPrice, #maxPrice {
+    width: 80px;
+    padding: 8px; 
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-left: 5px; 
+}
+
+#priceFilterGroup {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.col-3.p-0 {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 75px; 
+}
