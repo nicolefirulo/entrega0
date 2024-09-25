@@ -44,3 +44,67 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 });
+
+// Para cargar comentarios los produ
+const productID = localStorage.getItem("productID"); 
+const commentsURL = PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE; // Creo URL de comentarios
+
+getJSONData(commentsURL).then(function(result) {
+    if (result.status === "ok") {
+        let comments = result.data;
+        showComments(comments); 
+    }
+});
+
+function showComments(commentsArray) {
+    let htmlContentToAppend = "";
+
+    for (let i = 0; i < commentsArray.length; i++) {
+        let comment = commentsArray[i];
+
+        htmlContentToAppend += `
+        <div class="comment">
+            <strong>${comment.user}</strong> - ${comment.dateTime}
+            <p>Puntuación: ${comment.score} / 5</p>
+            <p>${comment.description}</p>
+        </div>
+        <hr>
+        `;
+    }
+
+    document.getElementById("comments-section").innerHTML = htmlContentToAppend;
+}
+
+
+// Para que aparezcan las estrellas en funcion del valor calificacion 
+document.addEventListener("DOMContentLoaded", function() {
+    const stars = document.querySelectorAll("#rating-stars .fa");
+    const selectRating = document.getElementById("userRating");
+  
+    //Cambiar estrellas al hacer clic
+    stars.forEach(star => {
+      star.addEventListener("click", function() {
+        const ratingValue = this.getAttribute("data-value");
+        selectRating.value = ratingValue;
+        updateStars(ratingValue);
+      });
+    });
+  
+    // Actualizar estrellas según el valor seleccionado
+    selectRating.addEventListener("change", function() {
+      updateStars(this.value);
+    });
+  
+    function updateStars(rating) {
+      stars.forEach(star => {
+        if (parseInt(star.getAttribute("data-value")) <= rating) {
+          star.classList.remove("fa-star-o");
+          star.classList.add("fa-star");
+        } else {
+          star.classList.remove("fa-star");
+          star.classList.add("fa-star-o");
+        }
+      });
+    }
+  });
+  
