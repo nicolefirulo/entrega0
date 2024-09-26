@@ -107,4 +107,69 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   });
-  
+
+// Función para cargar comentarios y calificación nueva
+function handleRatingSubmit(event) {
+  event.preventDefault(); 
+
+  const userComment = document.getElementById("userComment").value;
+  const userRating = document.getElementById("userRating").value;
+  const userName = localStorage.getItem("user"); 
+
+  const now = new Date();
+  const date = now.toISOString().split('T')[0];  
+  const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' , second: '2-digit' });
+
+  const newComment = {
+      user: userName,
+      dateTime: `${date} ${time}`,
+      description: userComment,
+      score: parseInt(userRating)
+  };
+
+  addCommentToDOM(newComment);
+  document.getElementById("ratingForm").reset();
+}
+
+function addCommentToDOM(comment) {
+  const commentsSection = document.getElementById("comments-section");
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+  commentDiv.innerHTML = `
+      <strong>${comment.user}</strong> - ${comment.dateTime}
+      <p>Puntuación: ${comment.score} / 5</p>
+      <p>${comment.description}</p>
+      <hr>`;
+  commentsSection.appendChild(commentDiv);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const stars = document.querySelectorAll("#rating-stars .fa");
+  const selectRating = document.getElementById("userRating");
+
+  stars.forEach(star => {
+      star.addEventListener("click", function() {
+          const ratingValue = this.getAttribute("data-value");
+          selectRating.value = ratingValue;
+          updateStars(ratingValue);
+      });
+  });
+
+  selectRating.addEventListener("change", function() {
+      updateStars(this.value);
+  });
+
+  function updateStars(rating) {
+      stars.forEach(star => {
+          if (parseInt(star.getAttribute("data-value")) <= rating) {
+              star.classList.remove("fa-star-o");
+              star.classList.add("fa-star");
+          } else {
+              star.classList.remove("fa-star");
+              star.classList.add("fa-star-o");
+          }
+      });
+  }
+
+  document.getElementById("submitRating").addEventListener("click", handleRatingSubmit);
+});
