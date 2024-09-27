@@ -53,6 +53,7 @@ getJSONData(commentsURL).then(function(result) {
     if (result.status === "ok") {
         let comments = result.data;
         showComments(comments); 
+        loadCommentsFromLocalStorage();
     }
 });
 
@@ -107,4 +108,65 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   });
+
+// Función para cargar comentarios desde localStorage
+function loadCommentsFromLocalStorage() {
+  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+
+  existingComments.forEach(comment => {
+      addCommentToDOM(comment);
+  });
+}
+
+// Función para agregar comentarios y calificaciones nuevas al DOM y LocalStorage
+function addCommentToDOM(comment) {
+  const commentsSection = document.getElementById("comments-section");
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+  commentDiv.innerHTML = `
+      <strong>${comment.user}</strong> - ${comment.dateTime}
+      <p>Puntuación: ${comment.score} / 5</p>
+      <p>${comment.description}</p>
+      <hr>`;
+  commentsSection.appendChild(commentDiv);
+}
+
+// Función para cargar la calificación y comentario nuevo
+function handleRatingSubmit(event) {
+  event.preventDefault();
+
+  const userComment = document.getElementById("userComment").value;
+  const userRating = document.getElementById("userRating").value;
+  const userName = localStorage.getItem("user");
+
+  const now = new Date();
+  const date = now.toISOString().split('T')[0];
+  const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+  const newComment = {
+      user: userName,
+      dateTime: `${date} ${time}`,
+      description: userComment,
+      score: parseInt(userRating)
+  };
+
+  // Agregar comentario al DOM y localStorage
+  addCommentToDOM(newComment);
+  saveCommentToLocalStorage(newComment);
+  document.getElementById("ratingForm").reset();
+}
+
+function saveCommentToLocalStorage(comment){
+  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
   
+  // Agregar el nuevo comentario a la lista
+    existingComments.push(comment);
+    localStorage.setItem("comments", JSON.stringify(existingComments));
+  }
+  
+  document.getElementById("submitRating").addEventListener("click", handleRatingSubmit);
+
+  document.addEventListener("DOMContentLoaded", () => {
+  loadCommentsFromLocalStorage(); 
+
+});
