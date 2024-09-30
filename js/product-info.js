@@ -1,16 +1,15 @@
 const id = localStorage.getItem("productID")
 const PRODUCT_URL = PRODUCT_INFO_URL + id + EXT_TYPE;
 let productInfo = [];
-function showProduct(array) {
+function showProduct(element) {
     
-    let categoryName = `<a href="products.html"> ${array.category}</a>  &gt`
+    let categoryName = `<h1>${element.category}</h1>`
     document.getElementById("categoryName").innerHTML = categoryName;
 
     let imagesHtml = '';
 
-    for (let i = 0; i < array.images.length; i++) {
-        const image = array.images[i];
-        console.log("Image URL:", image);
+    for (let i = 0; i < element.images.length; i++) {
+        const image = element.images[i];
         imagesHtml += `
         <div class="carousel-item ${i === 0 ? 'active' : ''}">
           <img src="${image}" class="d-block w-100">
@@ -20,16 +19,15 @@ function showProduct(array) {
 
     let productINFO = '';
     productINFO += `
-    <div class="categoryName">
-    <h1> ${array.category} </h1>
-    </div>
-    <h2> ${array.name} </h2>
-    <p> ${array.description} </p>
+    <div class="row">
+    <h2> ${element.name} </h2>
+    <p> ${element.description} </p>
     <div class="precio">
-    <p> Costo: ${array.cost} ${array.currency} </p>
+    <p> Costo: ${element.cost} ${element.currency} </p>
     </div>
     <div class="vendidos">
-    <p> Vendidos: ${array.soldCount} </p>
+    <p> Vendidos: ${element.soldCount} </p>
+    </div>
     </div>
     `
     document.getElementById("info").innerHTML = productINFO;
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (result.status === 'ok') {
                 let productInfo = result.data;
                 showProduct(productInfo);
-                console.log(productInfo);
             }
         });
 });
@@ -62,14 +59,21 @@ function showComments(commentsArray) {
 
     for (let i = 0; i < commentsArray.length; i++) {
         let comment = commentsArray[i];
-
+        let stars = "";
+        let vote = comment.score; 
+        for (s = 0; s < 5; s++) { //Pinta las estrellas en base al voto
+          if (s < vote) {
+                stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`
+            } else {
+                stars += `<i class="fa fa-star-o unchecked" aria-hidden="true"></i>`
+            }
+        }
         htmlContentToAppend += `
         <div class="comment">
             <strong>${comment.user}</strong> - ${comment.dateTime}
-            <p>Puntuación: ${comment.score} / 5</p>
+            <div>${stars}</div>
             <p>${comment.description}</p>
         </div>
-        <hr>
         `;
     }
 

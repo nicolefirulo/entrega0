@@ -1,6 +1,7 @@
 main {
   margin-top: 60px;
-  padding: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .container {
@@ -20,12 +21,7 @@ gap: 20px;
 width: 40%; 
 float: left; 
 margin-left: 0;
-margin-right: 20px; 
-}
-
-
-#carouselExampleInterval {
-  position: relative;
+margin-right: 20px;
 }
 
 .carousel-control-prev,
@@ -40,20 +36,11 @@ margin-right: 20px;
 }
 
 .carousel-control-prev {
-  left: 10px;
+  left: 2%;
 }
 
 .carousel-control-next {
-  right: 10px;
-}
-
-.carousel {
-  margin-right: 20px;
-}
-
-p {
-  font-size: 20px;
-  margin-right: 20px;
+  right: 2%;
 }
 
 .categoryName {
@@ -69,7 +56,6 @@ p {
  display: inline-block;
  width: 30%;
  margin-bottom: 20px;
- margin-left: 90px;  
 }
 
 .precio, .vendidos {
@@ -81,7 +67,6 @@ margin-top: 10px;
 
 .vendidos {
 color: #666868;
-padding-left: 0px; 
 border-radius: 5px;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 background-color: #fff;
@@ -111,22 +96,20 @@ margin-top: 0;
 #comments-form-section {
 display: flex;
 justify-content: space-between;
-margin-top: 20px; 
+margin-top: 3%; 
 padding: 10px;
 width: 100%;
-margin-bottom: 10px; 
 }
 
 #comments-column, #form-column {
   width: 48%;
-  border: 1px solid #dee2e6;
   color: #363739;
-  border-radius: 5px;
+  border-radius: 2%;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease; /* Transición suave */
   background-color: #f9f9f9;
-  padding: 15px;
+  padding: 2%;
 }
 
 #comments-section {
@@ -135,7 +118,7 @@ overflow-y: auto; /* Scroll si hay muchos comentarios */
 }
 
 #ratingForm textarea {
-width: 100%;
+width: 99%;
 resize: none;
 }
 
@@ -147,14 +130,10 @@ padding: 5px 10px;
 }
 
 #ratingForm button {
-margin-top: 10px;
 color: #ffffff;
-background-color: #ffc107; 
+background-color: #F19933; 
 border: 1px solid #00000011;
 border-radius: 5px;
-display: block; /* Asegura que se mantenga como un bloque */
-margin-left: 0; 
-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #comments-column:hover, #form-column:hover {
@@ -162,26 +141,34 @@ box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 #ratingForm button:hover {
-background-color: #d46804;
+background-color: #ffcf98;
 }
 
-h4 {
-font-weight: bold;
-margin-bottom: 15px;
+body {
+font-family: 'Raleway', sans-serif;
 }
 
-body, h4, p {
-font-family: 'Roboto', sans-serif;
+h1, h2, h4 {
+  font-weight: 700;
 }
 
 #rating-stars i {
 font-size: 24px;
-color: #ffc107;
+color: #F19933;
 cursor: pointer;
 margin-right: 5px;
 }
 
-#rating-stars i:hover,
-#rating-stars i.fa-star {
-color: #ff8800;
+.checked, .unchecked {
+  color: #F19933;
+}
+
+textarea {
+border-color: #ffcf98;
+border-radius: 0.7rem;
+}
+
+textarea:focus {
+border-color: #F19933;
+outline: none;
 }

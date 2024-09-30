@@ -405,7 +405,6 @@ h2.display-7 {
 #searchBar {
     width: 95%;
     flex-grow: 1;
-    margin-right: 250px; 
     margin-bottom: 5px;
   }
 
