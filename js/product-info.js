@@ -129,11 +129,19 @@ function addCommentToDOM(comment) {
   const commentsSection = document.getElementById("comments-section");
   const commentDiv = document.createElement('div');
   commentDiv.classList.add('comment');
+  let stars = "";
+  let vote = comment.score; 
+  for (s = 0; s < 5; s++) { //Pinta las estrellas en base al voto
+    if (s < vote) {
+          stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`
+      } else {
+          stars += `<i class="fa fa-star-o unchecked" aria-hidden="true"></i>`
+      }
+  }
   commentDiv.innerHTML = `
       <strong>${comment.user}</strong> - ${comment.dateTime}
-      <p>Puntuación: ${comment.score} / 5</p>
-      <p>${comment.description}</p>
-      <hr>`;
+      <p>${stars}</p>
+      <p>${comment.description}</p>`;
   commentsSection.appendChild(commentDiv);
 }
 
