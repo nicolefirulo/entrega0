@@ -21,12 +21,14 @@ function showProduct(element) {
     productINFO += `
     <div class="row">
     <h2> ${element.name} </h2>
-    <p> ${element.description} </p>
+    <p id="descripcion"> ${element.description} </p>
+    <div id="precio-vendidos">
     <div class="precio">
     <p> Costo: ${element.cost} ${element.currency} </p>
     </div>
     <div class="vendidos">
     <p> Vendidos: ${element.soldCount} </p>
+    </div>
     </div>
     </div>
     `
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-// Para cargar comentarios los produ
+// Para cargar comentarios los productos
 const productID = localStorage.getItem("productID"); 
 const commentsURL = PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE; // Creo URL de comentarios
 

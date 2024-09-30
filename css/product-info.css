@@ -65,17 +65,6 @@ color: #343a40;
 margin-top: 10px;
 }
 
-.vendidos {
-color: #666868;
-border-radius: 5px;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-background-color: #fff;
-text-align: center; 
-width: 30%;
-margin: 0; 
-margin-top: 10px;
-}
-
 .text-muted {
 width: 150%;
 padding: 2px 0; 
@@ -152,6 +141,10 @@ h1, h2, h4 {
   font-weight: 700;
 }
 
+#descripcion {
+  font-size: 1.2rem;
+}
+
 #rating-stars i {
 font-size: 24px;
 color: #F19933;
@@ -171,4 +164,16 @@ border-radius: 0.7rem;
 textarea:focus {
 border-color: #F19933;
 outline: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+#precio-vendidos {
+  display: flex !important;
+  justify-content: space-between !important;
 }
