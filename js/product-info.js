@@ -33,7 +33,41 @@ function showProduct(element) {
     </div>
     `
     document.getElementById("info").innerHTML = productINFO;
+    showRelatedProducts(element.relatedProducts)
 }
+
+function showRelatedProducts(array) {
+  let htmlContentToAppend = '';
+  for (let i = 0; i < array.length; i++) {
+    let product = array[i];
+      htmlContentToAppend += `
+      <div class="col-lg-3 col-md-4 col-6 mb-4">
+          <div class="card product-item" data-product-id="${product.id}" style="cursor: pointer;">
+              <img src="${product.image}" class="card-img-top" alt="${product.name}">
+              <div class="card-body">
+                  <h5 class="card-title">${product.name}</h5>
+              </div>
+          </div>
+      </div>`;
+  }
+
+  document.getElementById("related-products-container").innerHTML = htmlContentToAppend;
+  selectedProduct(); 
+}
+
+function selectedProduct() {
+  let productItem = document.querySelectorAll(".product-item");
+  productItem.forEach(function (product) {
+      product.addEventListener("click", function() {
+          let idProduct = product.getAttribute("data-product-id");
+          console.log("Selected product ID:", idProduct); 
+          localStorage.setItem("productID", idProduct);
+          window.location.href = "product-info.html";
+      });
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     getJSONData(PRODUCT_URL)
         .then(result => {
