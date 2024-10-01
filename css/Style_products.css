@@ -50,17 +50,9 @@ body {
 h2.display-7 {
     font-size: 48px;
     font-weight: 700;
-    margin: 40px 0 20px 0;
     text-align: center;
     color: #343a40;
-    padding: 20px;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 10%;
 }
 
 #products-container {
@@ -211,13 +203,6 @@ h2.display-7 {
 
 .pb-5 {
     padding-bottom: 0rem !important;
-}
-
-
-h2.display-7 {
-    width: 30%;
-    height: 25%;
-    margin-top: 10%;
 }
 
 /*Chiquito*/
@@ -405,7 +390,6 @@ h2.display-7 {
 #searchBar {
     width: 95%;
     flex-grow: 1;
-    margin-right: 250px; 
     margin-bottom: 5px;
   }
 
