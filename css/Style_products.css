@@ -66,14 +66,15 @@ h2.display-7 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 15px;
     border: 1px solid #dee2e6;
     background-color: white;
     border-radius: 8px;
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -88,9 +89,10 @@ h2.display-7 {
 }
 
 .card-body {
-    flex-grow: 1;
     position: relative;
     width: 100%;
+    flex: 0 0 auto;
+    padding: 0rem 0rem;
 }
 
 .card-body h3 {
@@ -141,11 +143,6 @@ h2.display-7 {
     }
 }
 
-.card {
-    max-width: 100%;
-    padding: 15px;
-}
-
 .card img {
     height: auto;
 }
@@ -176,11 +173,6 @@ h2.display-7 {
 .col-sm-10 .card-body .vendidos-container,
 .col-lg-6 .card-body .vendidos-container p {
     padding-left: 0%;
-}
-
-.card-body {
-    flex: 0 0 auto;
-    padding: 0rem 0rem;
 }
 
 .card-text {
@@ -388,7 +380,6 @@ h2.display-7 {
 }
 
 #searchBar {
-    width: 95%;
     flex-grow: 1;
     margin-bottom: 5px;
   }
