@@ -85,7 +85,6 @@ h2.display-7 {
 .card img {
     max-width: 200px;
     border-radius: 5px;
-
 }
 
 .card-body {
@@ -265,7 +264,6 @@ h2.display-7 {
     h2.display-7 {
         font-size: 1.2rem;
         padding: 0.5em;
-        width: 15vh;
         margin-top: 3rem;
     }
 
@@ -289,9 +287,7 @@ h2.display-7 {
         color: #000;
         margin-top: 0%;
     }
-
 }
-
 /*Barra de navegación*/
 .navbar {
     padding: 1% !important;
@@ -356,8 +352,7 @@ h2.display-7 {
     background-color: #f19933;
     border-color: #df851e;
     color: white;
-    margin-left: 10px;
-    
+    margin-left: 10px;    
 }
 
 .btn-block:hover {
@@ -382,12 +377,11 @@ h2.display-7 {
 #searchBar {
     flex-grow: 1;
     margin-bottom: 5px;
-  }
+}
 
 #minPrice, #maxPrice {
     width: 80px;
-    padding: 8px; 
-    font-size: 14px;
+    padding: 8px;
     border-radius: 5px;
     border: 1px solid #ced4da;
     margin-left: 5px; 

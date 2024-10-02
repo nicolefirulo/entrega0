@@ -41,7 +41,7 @@ function showRelatedProducts(array) {
   for (let i = 0; i < array.length; i++) {
     let product = array[i];
       htmlContentToAppend += `
-      <div class="col-lg-3 col-md-4 col-6 mb-4">
+      <div class="col-lg-3 col-md-4 col-6 mb-1">
           <div class="card product-item" data-product-id="${product.id}" style="cursor: pointer;">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">

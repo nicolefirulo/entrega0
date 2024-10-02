@@ -7,7 +7,6 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/Style_products.css" rel="stylesheet">
 </head>
@@ -57,10 +56,10 @@
         </div>
       </div>
       <div class="row mb-4">
-        <div class="container">
+        <div class="filters-container">
           <div class="row">
             <div class="col-auto">
-              <input type="text" id="searchBar" placeholder="Buscar productos..." oninput="showSuggestions(this.value)">
+              <input class="form-control" type="text" id="searchBar" placeholder="Buscar productos..." oninput="showSuggestions(this.value)">
               <div id="suggestionsList" class="suggestions"></div> <!-- Contenedor de sugerencias -->            </div>
             <div class="col-auto">
               <p class="font-weight-normal text-end my-2">Precio</p>
