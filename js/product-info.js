@@ -1,11 +1,11 @@
 const id = localStorage.getItem("productID")
 const PRODUCT_URL = PRODUCT_INFO_URL + id + EXT_TYPE;
 let productInfo = [];
+
 function showProduct(element) {
     
-    let categoryName = `<h1>${element.category}</h1>`
+ let categoryName = `<h1>${element.category}</h1>`
     document.getElementById("categoryName").innerHTML = categoryName;
-
     let imagesHtml = '';
 
     for (let i = 0; i < element.images.length; i++) {
@@ -67,9 +67,8 @@ function selectedProduct() {
   });
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    getJSONData(PRODUCT_URL)
+  document.addEventListener("DOMContentLoaded", () => {
+  getJSONData(PRODUCT_URL)
         .then(result => {
             if (result.status === 'ok') {
                 let productInfo = result.data;
@@ -79,14 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Para cargar comentarios los productos
-const productID = localStorage.getItem("productID"); 
-const commentsURL = PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE; // Creo URL de comentarios
+  const productID = localStorage.getItem("productID"); 
+  const commentsURL = PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE; // Creo URL de comentarios
 
 getJSONData(commentsURL).then(function(result) {
     if (result.status === "ok") {
         let comments = result.data;
         showComments(comments); 
-        loadCommentsFromLocalStorage();
     }
 });
 
@@ -116,13 +114,12 @@ function showComments(commentsArray) {
     document.getElementById("comments-section").innerHTML = htmlContentToAppend;
 }
 
-
 // Para que aparezcan las estrellas en funcion del valor calificacion 
-document.addEventListener("DOMContentLoaded", function() {
-    const stars = document.querySelectorAll("#rating-stars .fa");
-    const selectRating = document.getElementById("userRating");
+  document.addEventListener("DOMContentLoaded", function() {
+  const stars = document.querySelectorAll("#rating-stars .fa");
+  const selectRating = document.getElementById("userRating");
   
-    //Cambiar estrellas al hacer clic
+//Cambiar estrellas al hacer clic
     stars.forEach(star => {
       star.addEventListener("click", function() {
         const ratingValue = this.getAttribute("data-value");
@@ -131,41 +128,32 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   
-    // Actualizar estrellas según el valor seleccionado
+// Actualizar estrellas según el valor seleccionado
     selectRating.addEventListener("change", function() {
-      updateStars(this.value);
-    });
+    updateStars(this.value);
+});
   
-    function updateStars(rating) {
+function updateStars(rating) {
       stars.forEach(star => {
-        if (parseInt(star.getAttribute("data-value")) <= rating) {
+      if (parseInt(star.getAttribute("data-value")) <= rating) {
           star.classList.remove("fa-star-o");
           star.classList.add("fa-star");
-        } else {
+      } else {
           star.classList.remove("fa-star");
           star.classList.add("fa-star-o");
         }
       });
-    }
-  });
+  }
+});
 
-// Función para cargar comentarios desde localStorage
-function loadCommentsFromLocalStorage() {
-  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
-
-  existingComments.forEach(comment => {
-      addCommentToDOM(comment);
-  });
-}
-
-// Función para agregar comentarios y calificaciones nuevas al DOM y LocalStorage
+// Función para agregar comentarios y calificaciones nuevas 
 function addCommentToDOM(comment) {
   const commentsSection = document.getElementById("comments-section");
   const commentDiv = document.createElement('div');
   commentDiv.classList.add('comment');
   let stars = "";
   let vote = comment.score; 
-  for (s = 0; s < 5; s++) { //Pinta las estrellas en base al voto
+  for (s = 0; s < 5; s++) { 
     if (s < vote) {
           stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`
       } else {
@@ -201,20 +189,38 @@ function handleRatingSubmit(event) {
   // Agregar comentario al DOM y localStorage
   addCommentToDOM(newComment);
   saveCommentToLocalStorage(newComment);
-  document.getElementById("ratingForm").reset();
 }
 
+// Función para cargar comentarios desde localStorage
+function loadCommentsFromLocalStorage() {
+  try{
+  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
+  console.log("Comentarios cargados desde localStorage:", existingComments);
+
+  existingComments.forEach(comment => {
+  console.log("Agregando comentario al DOM:", comment);
+      addCommentToDOM(comment);
+  });
+} catch (error) {
+  console.error("Error al cargar los comentarios desde localStorage:", error);
+}
+}
+//Funcion para guardar comentarios en localStorage
 function saveCommentToLocalStorage(comment){
+  try {
   const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
   
   // Agregar el nuevo comentario a la lista
     existingComments.push(comment);
     localStorage.setItem("comments", JSON.stringify(existingComments));
+  } catch (error) {
+
   }
-  
+}
   document.getElementById("submitRating").addEventListener("click", handleRatingSubmit);
 
   document.addEventListener("DOMContentLoaded", () => {
+  console.log("Cargando comentarios desde localStorage...");
   loadCommentsFromLocalStorage(); 
 
 });
