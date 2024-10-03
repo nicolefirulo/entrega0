@@ -7,7 +7,6 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/Style_products.css" rel="stylesheet">
 </head>
@@ -57,17 +56,17 @@
         </div>
       </div>
       <div class="row mb-4">
-        <div class="col-lg-6 offset-lg-6 col-md-12 container">
+        <div class="filters-container">
           <div class="row">
             <div class="col-auto">
-              <input type="text" id="searchBar" placeholder="Buscar productos..." oninput="showSuggestions(this.value)">
+              <input class="form-control" type="text" id="searchBar" placeholder="Buscar productos..." oninput="showSuggestions(this.value)">
               <div id="suggestionsList" class="suggestions"></div> <!-- Contenedor de sugerencias -->            </div>
             <div class="col-auto">
               <p class="font-weight-normal text-end my-2">Precio</p>
             </div>
               <input class="form-control" type="number" placeholder="min." id="minPrice">
               <input class="form-control" type="number" placeholder="máx." id="maxPrice">
-            <div class="col-3 p-0">
+            <div class="col-auto p-0">
               <div class="btn-group" role="group">
                 <button class="btn btn-light btn-block" id="btnPriceFilter">Filtrar</button>
                 <button class="btn btn-link btn-sm" id="btnClearFilter">Limpiar</button>

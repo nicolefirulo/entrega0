@@ -66,14 +66,15 @@ h2.display-7 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 15px;
     border: 1px solid #dee2e6;
     background-color: white;
     border-radius: 8px;
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -84,13 +85,13 @@ h2.display-7 {
 .card img {
     max-width: 200px;
     border-radius: 5px;
-
 }
 
 .card-body {
-    flex-grow: 1;
     position: relative;
     width: 100%;
+    flex: 0 0 auto;
+    padding: 0rem 0rem;
 }
 
 .card-body h3 {
@@ -141,11 +142,6 @@ h2.display-7 {
     }
 }
 
-.card {
-    max-width: 100%;
-    padding: 15px;
-}
-
 .card img {
     height: auto;
 }
@@ -176,11 +172,6 @@ h2.display-7 {
 .col-sm-10 .card-body .vendidos-container,
 .col-lg-6 .card-body .vendidos-container p {
     padding-left: 0%;
-}
-
-.card-body {
-    flex: 0 0 auto;
-    padding: 0rem 0rem;
 }
 
 .card-text {
@@ -273,7 +264,6 @@ h2.display-7 {
     h2.display-7 {
         font-size: 1.2rem;
         padding: 0.5em;
-        width: 15vh;
         margin-top: 3rem;
     }
 
@@ -297,9 +287,7 @@ h2.display-7 {
         color: #000;
         margin-top: 0%;
     }
-
 }
-
 /*Barra de navegación*/
 .navbar {
     padding: 1% !important;
@@ -364,8 +352,7 @@ h2.display-7 {
     background-color: #f19933;
     border-color: #df851e;
     color: white;
-    margin-left: 10px;
-    
+    margin-left: 10px;    
 }
 
 .btn-block:hover {
@@ -388,15 +375,13 @@ h2.display-7 {
 }
 
 #searchBar {
-    width: 95%;
     flex-grow: 1;
     margin-bottom: 5px;
-  }
+}
 
 #minPrice, #maxPrice {
     width: 80px;
-    padding: 8px; 
-    font-size: 14px;
+    padding: 8px;
     border-radius: 5px;
     border: 1px solid #ced4da;
     margin-left: 5px; 
