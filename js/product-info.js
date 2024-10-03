@@ -174,7 +174,7 @@ function addCommentToDOM(comment) {
   }
   commentDiv.innerHTML = `
       <strong>${comment.user}</strong> - ${comment.dateTime}
-      <p>${stars}</p>
+      <div>${stars}</div>
       <p>${comment.description}</p>`;
   commentsSection.appendChild(commentDiv);
 }
