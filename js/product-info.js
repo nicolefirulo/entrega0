@@ -1,6 +1,5 @@
 const id = localStorage.getItem("productID")
 const PRODUCT_URL = PRODUCT_INFO_URL + id + EXT_TYPE;
-let productInfo = [];
 
 function showProduct(element) {
 
@@ -70,7 +69,7 @@ function selectedProduct() {
 // Para cargar comentarios de los productos
 const commentsURL = PRODUCT_INFO_COMMENTS_URL + id + EXT_TYPE; // Creo URL de comentarios
 
-let existingComments = JSON.parse(localStorage.getItem("comments")) ?? [];
+let existingComments = JSON.parse(localStorage.getItem("comments")) ?? []; // Si JSON.parse devuelve null o undefined, existingComments será un array vacío
 let comments = [];
 
 function showComments(commentsArray) {
@@ -141,7 +140,6 @@ btnSubmit.addEventListener("click", function (e) {
 function loadCommentsFromLocalStorage() {
   try {
     console.log("Comentarios cargados desde localStorage:", existingComments);
-
     const filteredComments = existingComments.filter(comment => comment.product === id);
     return filteredComments; // Devolvemos los comentarios filtrados
   } catch (error) {
