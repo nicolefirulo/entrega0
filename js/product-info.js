@@ -1,24 +1,23 @@
 const id = localStorage.getItem("productID")
 const PRODUCT_URL = PRODUCT_INFO_URL + id + EXT_TYPE;
-let productInfo = [];
 
 function showProduct(element) {
-    
- let categoryName = `<h1>${element.category}</h1>`
-    document.getElementById("categoryName").innerHTML = categoryName;
-    let imagesHtml = '';
 
-    for (let i = 0; i < element.images.length; i++) {
-        const image = element.images[i];
-        imagesHtml += `
+  let categoryName = `<h1>${element.category}</h1>`
+  document.getElementById("categoryName").innerHTML = categoryName;
+  let imagesHtml = '';
+
+  for (let i = 0; i < element.images.length; i++) {
+    const image = element.images[i];
+    imagesHtml += `
         <div class="carousel-item ${i === 0 ? 'active' : ''}">
           <img src="${image}" class="d-block w-100">
         </div>`;
-    }
-    document.getElementById("carousel-inner").innerHTML = imagesHtml;
+  }
+  document.getElementById("carousel-inner").innerHTML = imagesHtml;
 
-    let productINFO = '';
-    productINFO += `
+  let productINFO = '';
+  productINFO += `
     <div class="row">
     <h2> ${element.name} </h2>
     <p id="descripcion"> ${element.description} </p>
@@ -32,15 +31,15 @@ function showProduct(element) {
     </div>
     </div>
     `
-    document.getElementById("info").innerHTML = productINFO;
-    showRelatedProducts(element.relatedProducts)
+  document.getElementById("info").innerHTML = productINFO;
+  showRelatedProducts(element.relatedProducts)
 }
 
 function showRelatedProducts(array) {
   let htmlContentToAppend = '';
   for (let i = 0; i < array.length; i++) {
     let product = array[i];
-      htmlContentToAppend += `
+    htmlContentToAppend += `
       <div class="col-lg-3 col-md-4 col-6 mb-1">
           <div class="card product-item" data-product-id="${product.id}" style="cursor: pointer;">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
@@ -52,175 +51,157 @@ function showRelatedProducts(array) {
   }
 
   document.getElementById("related-products-container").innerHTML = htmlContentToAppend;
-  selectedProduct(); 
+  selectedProduct();
 }
 
 function selectedProduct() {
   let productItem = document.querySelectorAll(".product-item");
   productItem.forEach(function (product) {
-      product.addEventListener("click", function() {
-          let idProduct = product.getAttribute("data-product-id");
-          console.log("Selected product ID:", idProduct); 
-          localStorage.setItem("productID", idProduct);
-          window.location.href = "product-info.html";
-      });
+    product.addEventListener("click", function () {
+      let idProduct = product.getAttribute("data-product-id");
+      console.log("Selected product ID:", idProduct);
+      localStorage.setItem("productID", idProduct);
+      window.location.href = "product-info.html";
+    });
   });
 }
 
-  document.addEventListener("DOMContentLoaded", () => {
-  getJSONData(PRODUCT_URL)
-        .then(result => {
-            if (result.status === 'ok') {
-                let productInfo = result.data;
-                showProduct(productInfo);
-            }
-        });
-});
+// Para cargar comentarios de los productos
+const commentsURL = PRODUCT_INFO_COMMENTS_URL + id + EXT_TYPE; // Creo URL de comentarios
 
-// Para cargar comentarios los productos
-  const productID = localStorage.getItem("productID"); 
-  const commentsURL = PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE; // Creo URL de comentarios
-
-getJSONData(commentsURL).then(function(result) {
-    if (result.status === "ok") {
-        let comments = result.data;
-        showComments(comments); 
-    }
-});
+let existingComments = JSON.parse(localStorage.getItem("comments")) ?? []; // Si JSON.parse devuelve null o undefined, existingComments será un array vacío
+let comments = [];
 
 function showComments(commentsArray) {
-    let htmlContentToAppend = "";
+  let htmlContentToAppend = "";
 
-    for (let i = 0; i < commentsArray.length; i++) {
-        let comment = commentsArray[i];
-        let stars = "";
-        let vote = comment.score; 
-        for (s = 0; s < 5; s++) { //Pinta las estrellas en base al voto
-          if (s < vote) {
-                stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`
-            } else {
-                stars += `<i class="fa fa-star-o unchecked" aria-hidden="true"></i>`
-            }
-        }
-        htmlContentToAppend += `
+  for (let i = 0; i < commentsArray.length; i++) {
+    let comment = commentsArray[i];
+    let stars = "";
+    let vote = comment.score;
+
+    for (let s = 0; s < 5; s++) { // Pinta las estrellas en base al voto
+      if (s < vote) {
+        stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`;
+      } else {
+        stars += `<i class="fa fa-star-o unchecked" aria-hidden="true"></i>`;
+      }
+    }
+    let commentDate = new Date(comment.dateTime);
+    let date = commentDate.getDate() + "/" + (commentDate.getMonth()+ 1).toString().padStart(2, '0') + "/" + commentDate.getFullYear() + " " 
+    + commentDate.getHours().toString().padStart(2, '0') + ":" + commentDate.getMinutes().toString().padStart(2, '0') + ":" + commentDate.getSeconds().toString().padStart(2, '0'); 
+    //padStart rellena el string con 0 al principio si es necesario, para que el string tenga una longitud de dos caracteres
+    htmlContentToAppend += `
         <div class="comment">
-            <strong>${comment.user}</strong> - ${comment.dateTime}
+            <strong>${comment.user}</strong> - ${date}
             <div>${stars}</div>
             <p>${comment.description}</p>
         </div>
         `;
-    }
-
-    document.getElementById("comments-section").innerHTML = htmlContentToAppend;
-}
-
-// Para que aparezcan las estrellas en funcion del valor calificacion 
-  document.addEventListener("DOMContentLoaded", function() {
-  const stars = document.querySelectorAll("#rating-stars .fa");
-  const selectRating = document.getElementById("userRating");
-  
-//Cambiar estrellas al hacer clic
-    stars.forEach(star => {
-      star.addEventListener("click", function() {
-        const ratingValue = this.getAttribute("data-value");
-        selectRating.value = ratingValue;
-        updateStars(ratingValue);
-      });
-    });
-  
-// Actualizar estrellas según el valor seleccionado
-    selectRating.addEventListener("change", function() {
-    updateStars(this.value);
-});
-  
-function updateStars(rating) {
-      stars.forEach(star => {
-      if (parseInt(star.getAttribute("data-value")) <= rating) {
-          star.classList.remove("fa-star-o");
-          star.classList.add("fa-star");
-      } else {
-          star.classList.remove("fa-star");
-          star.classList.add("fa-star-o");
-        }
-      });
   }
-});
 
-// Función para agregar comentarios y calificaciones nuevas 
-function addCommentToDOM(comment) {
-  const commentsSection = document.getElementById("comments-section");
-  const commentDiv = document.createElement('div');
-  commentDiv.classList.add('comment');
-  let stars = "";
-  let vote = comment.score; 
-  for (s = 0; s < 5; s++) { 
-    if (s < vote) {
-          stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`
-      } else {
-          stars += `<i class="fa fa-star-o unchecked" aria-hidden="true"></i>`
-      }
-  }
-  commentDiv.innerHTML = `
-      <strong>${comment.user}</strong> - ${comment.dateTime}
-      <div>${stars}</div>
-      <p>${comment.description}</p>`;
-  commentsSection.appendChild(commentDiv);
+  document.getElementById("comments-section").innerHTML += htmlContentToAppend;
 }
 
 // Función para cargar la calificación y comentario nuevo
-function handleRatingSubmit(event) {
-  event.preventDefault();
+const btnSubmit = document.getElementById("submitRating");
 
-  const userComment = document.getElementById("userComment").value;
-  const userRating = document.getElementById("userRating").value;
-  const userName = localStorage.getItem("user");
+btnSubmit.addEventListener("click", function (e) {
+  e.preventDefault();
 
-  const now = new Date();
-  const date = now.toISOString().split('T')[0];
-  const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  let commentText = document.getElementById("userComment").value;
+  let commentValue = document.getElementById("userRating").value;
+  const localUser = localStorage.getItem("user");
 
-  const newComment = {
-      user: userName,
-      dateTime: `${date} ${time}`,
-      description: userComment,
-      score: parseInt(userRating)
-  };
+  if (commentText && commentValue) {
+    const newComment = {
+      user: localUser,
+      description: commentText,
+      score: commentValue,
+      dateTime: new Date().toISOString(),
+      product: id // Para asociar el comentario con el producto correcto
+    };
 
-  // Agregar comentario al DOM y localStorage
-  addCommentToDOM(newComment);
-  saveCommentToLocalStorage(newComment);
-}
+    // Guardar el comentario en localStorage
+    saveCommentToLocalStorage(newComment);
+
+    // Limpiar los campos del formulario
+    document.getElementById("userComment").value = '';
+    document.getElementById("userRating").value = '';
+
+    // Mostrar solo el nuevo comentario
+    showComments([newComment]);
+  } else {
+    alert("El comentario no puede estar vacio");
+  }
+});
 
 // Función para cargar comentarios desde localStorage
 function loadCommentsFromLocalStorage() {
-  try{
-  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
-  console.log("Comentarios cargados desde localStorage:", existingComments);
-
-  existingComments.forEach(comment => {
-  console.log("Agregando comentario al DOM:", comment);
-      addCommentToDOM(comment);
-  });
-} catch (error) {
-  console.error("Error al cargar los comentarios desde localStorage:", error);
-}
-}
-//Funcion para guardar comentarios en localStorage
-function saveCommentToLocalStorage(comment){
   try {
-  const existingComments = JSON.parse(localStorage.getItem("comments")) || [];
-  
-  // Agregar el nuevo comentario a la lista
-    existingComments.push(comment);
-    localStorage.setItem("comments", JSON.stringify(existingComments));
+    console.log("Comentarios cargados desde localStorage:", existingComments);
+    const filteredComments = existingComments.filter(comment => comment.product === id);
+    return filteredComments; // Devolvemos los comentarios filtrados
   } catch (error) {
-
+    console.error("Error al cargar los comentarios desde localStorage:", error);
+    return [];
   }
 }
-  document.getElementById("submitRating").addEventListener("click", handleRatingSubmit);
 
-  document.addEventListener("DOMContentLoaded", () => {
+// Función para guardar comentarios en localStorage
+function saveCommentToLocalStorage(comment) {
+  existingComments.push(comment); // Agregar el nuevo comentario
+  localStorage.setItem("comments", JSON.stringify(existingComments)); // Guardar en localStorage
+}
+
+// Al cargar la página, mostrar los comentarios
+document.addEventListener("DOMContentLoaded", () => {
+  getJSONData(PRODUCT_URL)
+  .then(result => {
+    if (result.status === 'ok') {
+      let productInfo = result.data;
+      showProduct(productInfo);
+    }
+  });
+  // Para que aparezcan las estrellas en función del valor calificación 
+  const stars = document.querySelectorAll("#rating-stars .fa");
+  const selectRating = document.getElementById("userRating");
+
+  // Cambiar estrellas al hacer clic
+  stars.forEach(star => {
+    star.addEventListener("click", function () {
+      const ratingValue = this.getAttribute("data-value");
+      selectRating.value = ratingValue;
+      updateStars(ratingValue);
+    });
+  });
+
+  // Actualizar estrellas según el valor seleccionado
+  selectRating.addEventListener("change", function () {
+    updateStars(this.value);
+  });
+
+  function updateStars(rating) {
+    stars.forEach(star => {
+      if (parseInt(star.getAttribute("data-value")) <= rating) {
+        star.classList.remove("fa-star-o");
+        star.classList.add("fa-star");
+      } else {
+        star.classList.remove("fa-star");
+        star.classList.add("fa-star-o");
+      }
+    });
+  }
+
   console.log("Cargando comentarios desde localStorage...");
-  loadCommentsFromLocalStorage(); 
+  const localComments = loadCommentsFromLocalStorage(); // Cargar comentarios del localStorage
 
+  // Mostrar todos los comentarios (API + localStorage)
+  getJSONData(commentsURL).then(function (result) {
+    if (result.status === "ok") {
+      comments = result.data;
+      showComments(comments);
+      showComments(localComments);
+    }
+  });
 });
