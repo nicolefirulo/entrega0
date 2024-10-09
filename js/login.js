@@ -4,12 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         let password = document.getElementById("password").value;
-        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
 
-        if (username!= "" && password!= "") {
-            localStorage.setItem("user", username)
-            window.location.href = "index.html";
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "" || password === "") {
+            alert("Por favor, completa todos los campos");
+            return;  /* Detiene la ejecución si hay campos vacíos */
         }
+
+        if (!emailPattern.test(email)) {
+            alert("Por favor, ingresa un email válido");
+            return; /*  Detiene la ejecución si el email no es válido */
+        }
+        localStorage.setItem("email", email);
+        window.location.href = "index.html"; 
     });
 });
 
