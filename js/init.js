@@ -42,14 +42,19 @@ let getJSONData = function(url){
 
 function login_check() {
 
-  let username = localStorage.getItem("user")
+  let email = localStorage.getItem("email")
 
-  if (localStorage.getItem("user") == null ){
+  if (localStorage.getItem("email") == null ){
   window.location.href = "login.html";
    } else {
-    document.getElementById("miPerfil").innerHTML = username
+    document.getElementById("emailButton").innerHTML = email
    }
-  
+
+   document.getElementById("logout").addEventListener("click", function () {
+    localStorage.removeItem("email"); 
+    window.location.href = "login.html"; 
+});
+
 }
 
 login_check();

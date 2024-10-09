@@ -214,8 +214,7 @@ a.custom-card:hover {
   padding: 0 15px;
   font-size: 16px;
 }
-.navbar-dark .navbar-nav .nav-link,
-#miPerfil  {
+.navbar-dark .navbar-nav .nav-link {
   color: rgb(249, 190, 120);
   font-weight: bold !important;
 }
@@ -242,6 +241,40 @@ a.custom-card:hover {
 .nav-item a:hover {
   color: #CEE8AD !important;
 }
+
+/* Boton email barra navegación */
+#emailButton {
+  background-color:  rgb(249, 190, 120); 
+  color: black; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#emailButton:hover {
+  background-color:   #f19933;
+  border-color: #f19933;
+  color: black;
+}
+
+.dropdown-menu {
+  background-color: #212529; 
+  border: none;           
+  min-width: 100%;        
+}
+
+.dropdown-item {
+  color: rgb(249, 190, 120); 
+  font-weight: bold;      
+}
+
+.dropdown-item:hover {
+  background-color: rgb(249, 190, 120); 
+  color: black;           
+}
+
 
 /*Barra de navegación para resoluciones menores a 992px*/
 @media (max-width: 991px) {
