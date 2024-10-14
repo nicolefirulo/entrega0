@@ -1,6 +1,6 @@
-#preview {
-    width: 70%;
-    margin-top: 70px;
+#previewImg {
+    width: 100%;
+    margin-top: 80px;
     aspect-ratio: 1/1;
 }
 
@@ -8,9 +8,9 @@
     width: 70%;
 }
 
-.btn-primary {
-    background-color: #f19933 !important;
-    border: none !important;
+#saveChanges {
+    background-color: #f19933;
+    border: none;
 }
 
 #file-label {
