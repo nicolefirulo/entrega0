@@ -38,9 +38,4 @@ document.addEventListener("DOMContentLoaded", () => {
         saveImg();
     })
     
-    const btnSave = document.getElementById("saveChanges");
-    btnSave.addEventListener("click", () => {
-        saveImg();
-    });
-    
 });
