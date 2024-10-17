@@ -4,6 +4,10 @@ main {
   padding-right: 10%;
 }
 
+nav {
+  height: 60px;
+}
+
 #carousel-inner {
   border: 1px solid #ff000000;
   width: 100%;
@@ -48,6 +52,7 @@ main {
   display: inline-block;
   width: 30%;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .precio,
@@ -56,6 +61,7 @@ main {
   font-weight: 600;
   color: #343a40;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .text-muted {
@@ -68,8 +74,8 @@ main {
   display: inline-block;
   vertical-align: top;
   margin-top: 0;
+  cursor: pointer;
 }
-
 
 #comments-form-section {
   display: flex;
@@ -134,6 +140,7 @@ h2,
 h4,
 h5 {
   font-weight: 700;
+  cursor: pointer;
 }
 
 .related-products h4 {
@@ -246,4 +253,117 @@ textarea:focus {
   #descripcion {
     font-size: 1.05rem;
   }
+}
+
+/* boton y Style de dark modo */ 
+.switch {
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0, .2);
+  }
+  &.active {
+    background: #df851e;
+    color: #161515;
+    &::after{
+      right: 0;
+      left: unset;
+    }
+  }
+  span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+  }
+}
+
+body.dark {
+   background-color: #2C2F33;
+   color: white;
+}
+
+body.dark #related-products-container h5 {
+  color: #ffffff;
+}
+
+body.dark #related-products-container .card {
+  background-color: #23272A;
+}
+
+body.dark {
+  background-color: #2C2F33;
+}
+
+body.dark .text-muted {
+ background-color: #23272A;
+ padding-top: 3rem;
+ padding-bottom: 3rem;
+ margin-top: 10px;
+ height: 10px;
+}
+
+body.dark .precio{
+  color: #ffffff;
+}
+
+body.dark .vendidos{
+  color: #ffffff;
+}
+.narv {
+  display: flex;
+  margin-bottom: 20px !important;
+}
+
+body.dark #comments-column{
+  background-color: #23272A;
+  color: #dee2e6;
+}
+
+body.dark #form-column {
+  background-color: #23272A;
+  color: #dee2e6;
+}
+
+body.dark #userComment{
+  background-color: #2C2F33;
+  color: #dee2e6;
+}
+
+body.dark .placeholder {
+  color: #b9bbbe;
+}
+
+body.dark #userRating {
+  background-color: #2C2F33;
+  color: #f1f1f1;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; 
+}
+
+.switch-container {
+  margin-left: 15px;
 }
