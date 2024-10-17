@@ -1,0 +1,30 @@
+#previewImg {
+    width: 70%;
+    margin-top: 80px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+#imageInput {
+    width: 70%;
+}
+
+#saveChanges {
+    background-color: #f19933;
+    border: none;
+}
+
+#file-label {
+    background-color: #f19933; 
+    color: #fff;
+    width: 70%;
+    padding: .375rem .75rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: .25rem;
+}
+
+input[type=file] {
+    display: none;
+}
