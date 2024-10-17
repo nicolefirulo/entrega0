@@ -343,7 +343,7 @@ a.custom-card:hover {
   cursor: pointer;
   display: flex;
   outline: none;
-
+  
   &::after {
     content: "";
     display: block;
@@ -358,7 +358,7 @@ a.custom-card:hover {
     transition: .3s ease all;
     box-shadow: 0px 0px 2px 2px rgb(0, 0, 0, .2);
   }
-  &.active {
+    &.active {
     background: #df851e;
     color: #161515;
     &::after{
