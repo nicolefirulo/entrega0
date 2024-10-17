@@ -204,4 +204,4 @@ document.addEventListener("DOMContentLoaded", () => {
       showComments(localComments);
     }
   });
-});
+ });

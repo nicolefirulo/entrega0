@@ -148,4 +148,5 @@ function filterProducts(searchTerm) {
 document.getElementById("searchBar").addEventListener("input", function() {
     let searchTerm = this.value;
     filterProducts(searchTerm);  
+
 });
