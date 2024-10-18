@@ -1,0 +1,223 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh; /*footer siempre esté al final */
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-page {
+    margin-top: 40px;
+}
+
+.profile-picture-section {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 340px;
+    height: 360px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-top: 210px;
+    margin-left: 5rem;
+}
+
+.change-photo-btn {
+    display: block;
+    background-color: #f19933;
+    border: none;
+    color: #fff;
+    width: 150px;
+    font-size: 15px;
+    margin-left: 45%;
+    margin-top: 10px;
+}
+/* Input oculto para cambiar la foto */
+.hidden {
+    display: none;
+}
+
+.profile-form-section {
+    margin-top: 200px; 
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+form {
+    margin-right: 100px;
+}
+
+.form-control {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/*Guardar cambios */
+button[type="submit"] {
+    background-color: #f19933;
+    border: none;
+    float: right;
+
+}
+
+.btn:hover {
+    background-color: #f78418;
+    box-shadow: 1px 1px 8px rgba(88, 88, 88, 0.4); 
+}
+
+
+footer {
+    margin-top: auto;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    text-align: left;
+    font-size: 0.9em;
+    width: 100%;
+}
+/* Media Query para tabletas en modo vertical */
+@media (max-width: 1024px) {
+
+    /* Centra la imagen de perfil arriba del formulario */
+    .profile-page {
+        margin-top: 50px;
+    }
+
+    .profile-picture-section {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .profile-picture {
+        width: 200px; 
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .change-photo-btn {
+        margin: 10px auto;
+        display: block;
+        width: 150px;
+    }
+
+    .profile-form-section {
+        margin-top: 50px;
+        padding-left: 60px;
+        padding-right: 40px;
+        margin-left: 200px;
+        
+    }
+
+    /* Modificacion para crear dos columnas para los inputs */
+    .row {
+        display: flex;
+        flex-wrap: wrap; /
+        justify-content:space-between; /* Espacio entre las columnas */
+    }
+
+    .col-md-6 {
+        width: 48%; 
+        margin-bottom: 5px;
+    }
+
+    /* "Guardar cambios" */
+    button[type="submit"] {
+        width: 200px 150px;
+        float: left;
+        margin-bottom: 50px;
+
+
+    }
+
+    /* Ajustes generales para formularios */
+    .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 568px) {
+
+    /* Centra la imagen de perfil arriba del formulario */
+    .profile-page {
+        margin-top: 30px;
+    }
+
+    .profile-picture-section {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+        margin-top: 150px;
+    }
+
+    .change-photo-btn {
+        margin: 10px auto;
+        display: block;
+        width: 150px;
+    }
+
+    .profile-form-section {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 320px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-6 {
+        width: 100%; 
+        margin-bottom: 15px;
+    }
+
+    /* Ajuste específico para el input de email */
+    #emailButton  {
+        padding: 7px 5px;
+        margin-left: 40%;
+        font-size: 10px;
+
+        
+    }
+
+    /* "Guardar cambios" */
+    button[type="submit"] {
+        margin: 20px auto;
+        width: 200px;
+        display: block;
+    }
+
+ 
+    .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste del menú desplegable */
+    .dropdown {
+        width: 90%; /* Ajustar tamaño del email y botón de dropdown */
+        margin: 0 auto;
+    }
+    #navbarNav{
+        padding: 0.5rem 0.2rem;
+    }
+}
+
+
+
+
