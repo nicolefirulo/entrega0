@@ -51,7 +51,10 @@ function login_check() {
    }
 
    document.getElementById("logout").addEventListener("click", function () {
-    localStorage.removeItem("email"); 
+    let userData = localStorage.getItem('userProfile');
+    localStorage.removeItem("email");
+    localStorage.removeItem("userProfile");
+    localStorage.removeItem("imageBase64");
     window.location.href = "login.html"; 
 });
 
