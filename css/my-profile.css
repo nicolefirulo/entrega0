@@ -1,30 +1,184 @@
-#previewImg {
-    width: 70%;
-    margin-top: 80px;
-    aspect-ratio: 1/1;
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-page {
+    margin-top: 40px;
+}
+
+.profile-picture-section {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 100%; 
+    max-width: 340px; 
+    height: auto; 
+    border-radius: 10%;
     object-fit: cover;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#imageInput {
-    width: 70%;
-}
-
-#saveChanges {
+.change-photo-btn {
+    display: block;
     background-color: #f19933;
     border: none;
-}
-
-#file-label {
-    background-color: #f19933; 
     color: #fff;
-    width: 70%;
-    padding: .375rem .75rem;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    border-radius: .25rem;
+    width: 150px;
+    font-size: 15px;
+    margin: 10px auto;
 }
 
-input[type=file] {
+/* Input oculto para cambiar la foto */
+.hidden {
     display: none;
+}
+
+.profile-form-section {
+    margin-top: 150px; 
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+form {
+    margin-right: 0;
+}
+
+.form-control {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Botón "Guardar cambios" */
+button[type="submit"] {
+    background-color: #f19933;
+    border: none;
+    display: block;
+    margin: 20px auto;
+    float: right;
+}
+
+button[type="submit"]:hover {
+    background-color: #f78418;
+    box-shadow: 1px 1px 8px rgba(88, 88, 88, 0.4); 
+}
+
+.btn:hover{
+    background-color: #f78418;
+}
+
+/* Ajustes generales para footer */
+footer {
+    margin-top: auto;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    text-align: left;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+/* Media Query para tabletas en modo vertical */
+@media (max-width: 1024px) {
+    .profile-page {
+        margin-top: 50px;
+    }
+
+    .profile-picture {
+        width: 200px;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .change-photo-btn {
+        margin: 10px auto;
+    }
+
+    .profile-form-section {
+        margin-top: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .col-md-6 {
+        width: 48%;
+        margin-bottom: 5px;
+    }
+
+    button[type="submit"] {
+        width: 150px;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}
+
+/* Media Query para pantallas pequeñas (Celu) */
+@media (max-width: 568px) {
+    .profile-page {
+        margin-top: 30px;
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .change-photo-btn {
+        margin: 10px auto;
+        width: 150px;
+    }
+
+    .profile-form-section {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    button[type="submit"] {
+        margin: 20px auto;
+        width: 200px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .dropdown {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #navbarNav {
+        padding: 0.5rem 0.2rem;
+    }
 }
