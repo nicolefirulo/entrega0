@@ -19,6 +19,7 @@ body {
     max-width: 340px; 
     height: auto; 
     border-radius: 10%;
+    aspect-ratio: 1/1;
     object-fit: cover;
     margin-top: 150px;
     margin-left: auto;
@@ -78,8 +79,6 @@ footer {
     margin-top: auto;
     padding: 10px 0;
     background-color: #f8f9fa;
-    text-align: left;
-    font-size: 0.9em;
     width: 100%;
 }
 

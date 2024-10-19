@@ -111,7 +111,7 @@ btnSubmit.addEventListener("click", function (e) {
 
   let commentText = document.getElementById("userComment").value;
   let commentValue = document.getElementById("userRating").value;
-  const localUser = localStorage.getItem("user");
+  const localUser = localStorage.getItem("email");
 
   if (commentText && commentValue) {
     const newComment = {

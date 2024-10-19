@@ -1,54 +1,67 @@
+// Guardar la imagen en localStorage
+function saveImg() {
+    const file = fileInput.files[0];
+
+    if (file) {
+        const reader = new FileReader(); // Crea un objeto FileReader(), el cual se encarga de leer el archivo
+
+        reader.onloadend = () => {
+            let base64String = reader.result; // El contenido del archivo se convierte en una cadena de texto en formato Base64
+            console.log(base64String);
+            localStorage.setItem('imageBase64', base64String); // Guarda en localStorage la cadena Base64
+            showImg(); // Muestra la imagen
+        };
+
+        reader.onerror = (error) => {
+            console.error('Error de FileReader:', error);
+        };
+
+        reader.readAsDataURL(file);
+    } else {
+        console.error('No se ha seleccionado ningún archivo');
+    }
+}
+
+// Mostrar la imagen de perfil
+function showImg() {
+    let base64String = localStorage.getItem("imageBase64");
+    if (base64String) {
+        document.getElementById('previewImg').setAttribute("src", base64String);
+    }
+}
+
+const fileInput = document.getElementById('fileInput');
+const form = document.querySelector("form");
+const emailField = document.getElementById("email");
+const firstNameField = document.getElementById("firstName");
+const secondNameField = document.getElementById("secondName");
+const lastNameField = document.getElementById("lastName");
+const secondLastNameField = document.getElementById("secondLastName");
+const phoneField = document.getElementById("phone");
+
+// Muestra los datos desde el localStorage
+function showStoredDATA() {
+    let email = localStorage.getItem('email');
+    let userData = JSON.parse(localStorage.getItem('userProfile'));
+    if (userData) {
+        emailField.value = userData.email;
+        firstNameField.value = userData.firstName;
+        secondNameField.value = userData.secondName;
+        lastNameField.value = userData.lastName;
+        secondLastNameField.value = userData.secondLastName;
+        phoneField.value = userData.phone;
+    } else {
+        emailField.value = email;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    const fileInput = document.getElementById('fileInput'); 
-    const form = document.querySelector("form");
-    const emailField = document.getElementById("email");
-
-    // Guardar la imagen en localStorage
-    function saveImg() {
-        const file = fileInput.files[0];
-
-        if (file) {
-            const reader = new FileReader(); // Crea un objeto FileReader(), el cual se encarga de leer el archivo
-
-            reader.onloadend = () => {
-                let base64String = reader.result; // El contenido del archivo se convierte en una cadena de texto en formato Base64
-                console.log(base64String);
-                localStorage.setItem('imageBase64', base64String); // Guarda en localStorage la cadena Base64
-                showImg(); // Muestra la imagen
-            };
-
-            reader.onerror = (error) => {
-                console.error('Error de FileReader:', error);
-            };
-
-            reader.readAsDataURL(file);
-        } else {
-            console.error('No se ha seleccionado ningún archivo');
-        }
-    }
-
-    // Mostrar la imagen de perfil
-    function showImg() {
-        let base64String = localStorage.getItem("imageBase64");
-        if (base64String) {
-            document.getElementById('previewImg').setAttribute("src", base64String);
-        }
-    }
-
-    // Cargar solo el email desde el localStorage (no el resto de los campos)
-    function loadEmail() {
-        let email = localStorage.getItem('email');
-        if (email) {
-            emailField.value = email;
-            emailField.disabled = true;
-        }
-    }
 
     // Validación de los campos obligatorios
     function validateForm() {
         const firstName = document.getElementById("firstName").value.trim();
         const lastName = document.getElementById("lastName").value.trim();
-        const email = emailField.value.trim(); 
+        const email = emailField.value.trim();
 
         if (firstName === "" || lastName === "" || email === "") {
             alert("Por favor, completa todos los campos obligatorios: Nombre, Apellido y E-mail.");
@@ -81,10 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Datos guardados correctamente.");
     });
 
-    // Cargar imagen y solo el email al cargar la página
+    // Cargar imagen y datos desde localStorage
     showImg();
-    loadEmail();
+    showStoredDATA();
 
     // Manejar el cambio de imagen
-    fileInput.addEventListener("change", saveImg);
+    fileInput.addEventListener("change", () => {
+        saveImg();
+    })
 });
