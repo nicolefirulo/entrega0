@@ -93,7 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem('userProfile', JSON.stringify(userProfile));
         localStorage.setItem('email', emailField.value)
         login_check();
-        alert("Datos guardados correctamente.");
+        Swal.fire({
+            text: 'Datos guardados correctamente!',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+        })
     });
 
     // Cargar imagen y datos desde localStorage

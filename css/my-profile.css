@@ -181,3 +181,18 @@ footer {
         padding: 0.5rem 0.2rem;
     }
 }
+:root {
+    --main-bg-color: #f8f9fa;
+    --color: #2c2f33;
+  }
+  body.dark {
+    --main-bg-color: #2c2f33;
+    --color: #f8f9fa;
+  }
+.swal2-confirm.swal2-styled {
+    background: #f78418;
+}
+div:where(.swal2-container) div:where(.swal2-popup){
+    background-color: var(--main-bg-color);
+    color: var(--color);
+}
