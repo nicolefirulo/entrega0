@@ -52,7 +52,7 @@ function login_check() {
    document.getElementById("logout").addEventListener("click", function () {
     localStorage.removeItem("email");
     localStorage.removeItem("userProfile");
-    localStorage.removeItem("imageBase64");
+    localStorage.removeItem("profilePic");
     window.location.href = "login.html"; 
 });
 }
