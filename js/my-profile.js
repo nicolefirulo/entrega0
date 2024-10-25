@@ -8,8 +8,10 @@ function saveImg() {
         reader.onloadend = () => {
             let base64String = reader.result; // El contenido del archivo se convierte en una cadena de texto en formato Base64
             console.log(base64String);
-            localStorage.setItem('imageBase64', base64String); // Guarda en localStorage la cadena Base64
-            showImg(); // Muestra la imagen
+            document.getElementById('previewImg').setAttribute("src", base64String);
+            form.addEventListener("submit", () => {
+                localStorage.setItem('profilePic', base64String); // Guarda en localStorage la cadena Base64
+            })
         };
 
         reader.onerror = (error) => {
@@ -24,9 +26,9 @@ function saveImg() {
 
 // Mostrar la imagen de perfil
 function showImg() {
-    let base64String = localStorage.getItem("imageBase64");
-    if (base64String) {
-        document.getElementById('previewImg').setAttribute("src", base64String);
+    let savedImg = localStorage.getItem("profilePic");
+    if (savedImg) {
+        document.getElementById('previewImg').setAttribute("src", savedImg);
     }
 }
 
@@ -84,13 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
             secondName: document.getElementById("secondName").value,
             secondLastName: document.getElementById("secondLastName").value,
             phone: document.getElementById("phone").value,
-            email: emailField.value, // Mantener el email almacenado
-            imageBase64: localStorage.getItem('imageBase64') // Mantener la imagen si ya estaba guardada
+            email: emailField.value,
         };
 
         // Guardar el objeto completo del perfil en localStorage
         localStorage.setItem('userProfile', JSON.stringify(userProfile));
-
+        localStorage.setItem('email', emailField.value)
+        login_check();
         alert("Datos guardados correctamente.");
     });
 
