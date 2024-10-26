@@ -204,4 +204,49 @@ document.addEventListener("DOMContentLoaded", () => {
       showComments(localComments);
     }
   });
+
+/*   Agregar al carrito */
+  function agregarAlCarrito() {
+    let listaCarrito = [];
+    let carritoGuardado = localStorage.getItem("carrito");
+
+    if (carritoGuardado) {
+        listaCarrito = JSON.parse(carritoGuardado);
+    }
+
+    let productId = localStorage.getItem("productID");  
+    if (productId) { 
+      let producto = { id: productId, cantidad: 1 };
+      let productoExistente = listaCarrito.find(item => item.id === productId);
+
+      if (productoExistente) {
+          alert("Este producto ya está en el carrito.");
+      } else {
+          listaCarrito.push(producto);
+          localStorage.setItem("carrito", JSON.stringify(listaCarrito));
+          alert("Producto agregado al carrito.");
+      }
+    }
+}
+document.getElementById("addToCartButton").addEventListener("click", agregarAlCarrito);
+
+/* Comprar producto */
+function comprarProducto() {
+  let listaCarrito = [];
+    let carritoGuardado = localStorage.getItem("carrito");
+
+    if (carritoGuardado) {
+        listaCarrito = JSON.parse(carritoGuardado);
+    }
+  let productId = localStorage.getItem("productID");
+  if (productId) {
+      let productoAComprar = { id: productId, cantidad: 1 }; 
+      localStorage.setItem("productoAComprar", JSON.stringify(productoAComprar));
+
+      window.location.href = "cart.html";
+  }
+}
+document.getElementById("buyButton").addEventListener("click", comprarProducto);
+
+
  });
