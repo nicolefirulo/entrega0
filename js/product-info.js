@@ -133,10 +133,9 @@ btnSubmit.addEventListener("click", function (e) {
     showComments([newComment]);
   } else {
     Swal.fire({
-      title: 'Error!',
-      text: 'El comentario no puede estar vacio',
-      icon: 'error',
-      confirmButtonText: 'Continuar'
+      text: 'El comentario no puede estar vacío',
+      icon: 'warning',
+      confirmButtonText: 'Volver a intentar'
     })
   }
 });
@@ -258,17 +257,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Comprar producto */
   function comprarProducto() {
-    let listaCarrito = [];
-    let carritoGuardado = localStorage.getItem("carrito");
-
-    if (carritoGuardado) {
-      listaCarrito = JSON.parse(carritoGuardado);
-    }
+    let listaCarrito = JSON.parse(localStorage.getItem("carrito")) ?? [];
 
     let productId = localStorage.getItem("productID");
     if (productId) {
       let productoAComprar = { id: productId, name: productInfo.name, cost: productInfo.cost, currency: productInfo.currency, image: productInfo.images[0], cantidad: 1}; 
-      localStorage.setItem("productoAComprar", JSON.stringify(productoAComprar));
+      
+      let productoExistente = listaCarrito.find(item => item.id === productId);
+      
+      if (!productoExistente){
+        listaCarrito.push(productoAComprar);
+        localStorage.setItem("carrito", JSON.stringify(listaCarrito));
+      }
 
       window.location.href = "cart.html";
     }

@@ -1,6 +1,18 @@
 h2 {
     margin-top: 80px;
+    text-align: center;
 }
-.count {
+.row {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    text-align: center;
+    width: 30px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
