@@ -49,15 +49,12 @@ function login_check() {
    } else {
     document.getElementById("emailButton").innerHTML = email
    }
-
    document.getElementById("logout").addEventListener("click", function () {
-    let userData = localStorage.getItem('userProfile');
     localStorage.removeItem("email");
     localStorage.removeItem("userProfile");
-    localStorage.removeItem("imageBase64");
+    localStorage.removeItem("profilePic");
     window.location.href = "login.html"; 
 });
-
 }
 
 login_check();
