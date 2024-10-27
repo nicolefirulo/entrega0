@@ -415,3 +415,29 @@ body.dark #userRating {
     margin-bottom: 50px;
   }
 }
+
+/*  Alertas de agregar al carrito */
+:root {
+  --main-bg-color: #f8f9fa;
+  --color: #2c2f33;
+}
+body.dark {
+   background-color: #2c2f33; 
+  color: #f8f9fa;
+}
+.swal2-confirm.swal2-styled {
+  background: #f78418;
+}
+div:where(.swal2-container) div:where(.swal2-popup){
+  background-color: var(--main-bg-color);
+  color: var(--color);
+}
+
+body.dark .swal2-confirm.swal2-styled {
+  background: #f78418; 
+}
+
+body.dark .swal2-popup {
+  background-color: #2c2f33; 
+  color: #f8f9fa; 
+}
