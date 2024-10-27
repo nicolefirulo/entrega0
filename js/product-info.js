@@ -132,7 +132,12 @@ btnSubmit.addEventListener("click", function (e) {
     // Mostrar solo el nuevo comentario
     showComments([newComment]);
   } else {
-    alert("El comentario no puede estar vacio");
+    Swal.fire({
+      title: 'Error!',
+      text: 'El comentario no puede estar vacio',
+      icon: 'error',
+      confirmButtonText: 'Continuar'
+    })
   }
 });
 
