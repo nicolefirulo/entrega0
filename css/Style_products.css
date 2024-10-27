@@ -556,3 +556,29 @@ body.dark .btn-sm:hover {
     text-decoration: none; 
 }
 
+/* Pantalla chica en categories */
+@media (max-width: 575px) {
+
+    #emailButton {
+        width: 100%; 
+        max-width: 170px; 
+        height: 30px; 
+        font-size: 11px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        text-align: center; 
+        margin: 0 auto; 
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+    }
+  
+    .switch-container {
+        width: 60px;
+        height: 25px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    } 
+}
+
