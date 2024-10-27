@@ -232,12 +232,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let productoExistente = listaCarrito.find(item => item.id === productId);
 
-      if (productoExistente) {
-        alert("Este producto ya está en el carrito.");
+      if (productoExistente)  {
+        Swal.fire({
+          text: 'Este producto ya está en el carrito.',
+          icon: 'info',
+          confirmButtonText: 'Continuar',
+        });
       } else {
         listaCarrito.push(producto);
         localStorage.setItem("carrito", JSON.stringify(listaCarrito));
-        alert("Producto agregado al carrito.");
+        Swal.fire({
+          text: 'Producto agregado al carrito.',
+          icon: 'success',
+          confirmButtonText: 'Continuar',
+        });
       }
     }
   }
