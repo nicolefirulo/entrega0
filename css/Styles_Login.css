@@ -169,3 +169,6 @@ body{
       font-size: 13px; 
     }
   }
+.swal2-confirm.swal2-styled {
+    background: #f78418;
+}

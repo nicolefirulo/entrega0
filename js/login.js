@@ -9,12 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (email === "" || password === "") {
-            alert("Por favor, completa todos los campos");
+            Swal.fire({
+                text: 'Por favor, completa todos los campos',
+                icon: 'info',
+                confirmButtonText: 'Volver a intentar',
+              });
             return;  /* Detiene la ejecución si hay campos vacíos */
         }
 
         if (!emailPattern.test(email)) {
-            alert("Por favor, ingresa un email válido");
+            Swal.fire({
+                text: 'Por favor, ingresa un email válido',
+                icon: 'error',
+                confirmButtonText: 'Volver a intentar'
+              })
             return; /*  Detiene la ejecución si el email no es válido */
         }
         localStorage.setItem("email", email);
