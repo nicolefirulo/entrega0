@@ -519,9 +519,10 @@ body.dark .btn-sm:hover {
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
-    text-align: auto;
-    align-items: center; 
-    justify-content: center;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    padding-top: 10px; 
    }
 
   .switch-container {
