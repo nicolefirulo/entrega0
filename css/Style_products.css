@@ -291,6 +291,7 @@ h2.display-7 {
 /*Barra de navegación*/
 .navbar {
     padding: 1% !important;
+    height: 60px;
 }
 
 .navbar-dark .navbar-nav .nav-link,
