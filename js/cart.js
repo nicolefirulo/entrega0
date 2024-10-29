@@ -1,37 +1,90 @@
 let cart = JSON.parse(localStorage.getItem("carrito"));
-//Función para mostrar los productos a comprar almacenados en localStorage
+// Función para mostrar productos para comprar almacenados en localStorage
 function cartProducts() {
     let productCard = document.getElementById("cartProducts");
     productCard.innerHTML = "";
     if (cart === null) {
         productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr>`;
-    }
-    else {
+    } else {
         productCard.innerHTML += `
         <div class="row">
             <div class="offset-2 col-2"><h5>Nombre</h5></div>
             <div class="col-2"><h5>Costo</h5></div>
-            <div class=col-2><h5>Cantidad</h5></div>
-            <div class=col-2><h5>Subtotal</h5></div>
-        </div><hr>`
+            <div class="col-2"><h5>Cantidad</h5></div>
+            <div class="col-2"><h5>Subtotal</h5></div>
+        </div><hr>`;
+
+        // Agregar productos al HTML con la funcionalidad de actualización de subtotal
         for (let i = 0; i < cart.length; i++) {
             const product = cart[i];
-            productCard.innerHTML +=
-            `<div class="row">
-                <img class="col-2" src=${product.image}>
+            const subtotal = product.cost * product.cantidad;
+
+            productCard.innerHTML += `
+            <div class="row">
+                <img class="col-2" src="${product.image}" alt="Imagen del producto">
                 <h5 class="col-2">${product.name}</h5>
                 <p class="col-2">${product.cost} ${product.currency}</p>
                 <div class="col-2 count">
-                <button class="btn btn-primary">-</button>
-                <input type="number" name="cantidad" value="${product.cantidad}">
-                <button class="btn btn-primary">+</button> 
+                    <button class="btn btn-primary decrease-btn" data-index="${i}">-</button>
+                    <input type="number" name="cantidad" class="quantity-input" data-index="${i}" value="${product.cantidad}" min="1">
+                    <button class="btn btn-primary increase-btn" data-index="${i}">+</button>
                 </div>
-                <p class="col-2">${product.cost} ${product.currency}</p>    
-            </div><hr>`
+                <p class="col-2 subtotal">${subtotal} ${product.currency}</p>    
+            </div><hr>`;
         }
     }
 }
 
+// Actualizar el subtotal en tiempo real
+function updateSubtotal(index) {
+    const product = cart[index];
+    const quantityInput = document.querySelector(`input[data-index="${index}"]`);
+    let newQuantity = parseInt(quantityInput.value);
+
+    // Asegurarse de que la cantidad sea al menos 1
+    if (newQuantity < 1 || isNaN(newQuantity)) {
+        newQuantity = 1;
+        quantityInput.value = 1; // Establece visualmente el valor mínimo en 1 
+    }
+
+    // Actualizar cantidad y recalcular subtotal
+    product.cantidad = newQuantity;
+    const newSubtotal = product.cost * newQuantity;
+    cart[index] = product;
+    localStorage.setItem("carrito", JSON.stringify(cart)); 
+    
+    const subtotalElement = quantityInput.closest(".row").querySelector(".subtotal");
+    subtotalElement.textContent = `${newSubtotal} ${product.currency}`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     cartProducts();
+
+    // Evento de cambio a cada campo de cantidad
+    document.querySelectorAll(".quantity-input").forEach((input) => {
+        input.addEventListener("input", (event) => {
+            const index = event.target.getAttribute("data-index");
+            updateSubtotal(index);
+        });
+    });
+
+    // Funcionalidad a los botones de + y -
+    document.querySelectorAll(".decrease-btn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const index = event.target.getAttribute("data-index");
+            const input = document.querySelector(`input[data-index="${index}"]`);
+            input.stepDown();
+            if (parseInt(input.value) < 1) input.value = 1; // Aseguramos que la cantidad no sea menor a 1
+            input.dispatchEvent(new Event('input')); // Disparar evento para actualizar subtotal
+        });
+    });
+
+    document.querySelectorAll(".increase-btn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const index = event.target.getAttribute("data-index");
+            const input = document.querySelector(`input[data-index="${index}"]`);
+            input.stepUp();
+            input.dispatchEvent(new Event('input')); // Disparar evento para actualizar subtotal
+        });
+    });
 });
