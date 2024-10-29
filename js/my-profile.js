@@ -10,7 +10,7 @@ function saveImg() {
             console.log(base64String);
             document.getElementById('previewImg').setAttribute("src", base64String);
             form.addEventListener("submit", () => {
-                localStorage.setItem('profilePic', base64String); // Guarda en localStorage la cadena Base64
+                localStorage.setItem('profilePic_${emailField.value}', base64String); // Guarda en localStorage la cadena Base64
             })
         };
 
@@ -26,7 +26,7 @@ function saveImg() {
 
 // Mostrar la imagen de perfil
 function showImg() {
-    let savedImg = localStorage.getItem("profilePic");
+    let savedImg = localStorage.getItem("profilePic_${emailField.value}");
     if (savedImg) {
         document.getElementById('previewImg').setAttribute("src", savedImg);
     }
@@ -44,7 +44,7 @@ const phoneField = document.getElementById("phone");
 // Muestra los datos desde el localStorage
 function showStoredDATA() {
     let email = localStorage.getItem('email');
-    let userData = JSON.parse(localStorage.getItem('userProfile'));
+    let userData = JSON.parse(localStorage.getItem('userProfile_${userEmail}'));
     if (userData) {
         emailField.value = userData.email;
         firstNameField.value = userData.firstName;
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Guardar el objeto completo del perfil en localStorage
-        localStorage.setItem('userProfile', JSON.stringify(userProfile));
+        localStorage.setItem('userProfile_${userEmail}', JSON.stringify(userProfile));
         localStorage.setItem('email', emailField.value)
         login_check();
         Swal.fire({
