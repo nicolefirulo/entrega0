@@ -262,9 +262,9 @@ h2.display-7 {
     }
 
     h2.display-7 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 0.5em;
-        margin-top: 3rem;
+        margin-top: 4rem;
     }
 
     .m-3 {
@@ -291,6 +291,7 @@ h2.display-7 {
 /*Barra de navegación*/
 .navbar {
     padding: 1% !important;
+    height: 60px;
 }
 
 .navbar-dark .navbar-nav .nav-link,
@@ -351,6 +352,14 @@ h2.display-7 {
     color: black;           
   }
 
+/*Style Badge*/
+
+#cartBadge {
+    background-color: #ffaf53be !important;
+    color: white;
+    padding: .15rem .30rem;
+    border-radius: .25rem;
+}
 
 /*Barra de navegación para resoluciones menores a 992px*/
 @media (max-width: 991px) {
@@ -556,11 +565,30 @@ body.dark .btn-sm:hover {
     text-decoration: none; 
 }
 
-/*Style Badge*/
+/* Pantalla chica en categories */
+@media (max-width: 575px) {
 
-#cartBadge {
-    background-color: #ffaf53be !important;
-    color: white;
-    padding: .15rem .30rem;
-    border-radius: .25rem;
+    #emailButton {
+        width: 100%; 
+        max-width: 170px; 
+        height: 30px; 
+        font-size: 11px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        text-align: center; 
+        margin: 0 auto; 
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+    }
+  
+    .switch-container {
+        width: 60px;
+        height: 25px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    } 
 }
+
+
