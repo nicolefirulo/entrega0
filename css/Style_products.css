@@ -557,6 +557,12 @@ body.dark .btn-sm:hover {
     text-decoration: none; 
 }
 
+body.dark #emailButton:hover {
+    background-color:   #f19933 !important;
+    border-color: #f19933 !important;
+    color: black !important;
+}
+
 /* Pantalla chica en categories */
 @media (max-width: 575px) {
 
