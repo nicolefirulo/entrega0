@@ -276,6 +276,14 @@ a.custom-card:hover {
   color: black;           
 }
 
+/*Style Badge*/
+
+#cartBadge {
+  background-color: #ffaf53be !important;
+  color: white;
+  padding: .15rem .25rem;
+  border-radius: .25rem;
+}
 
 /*Barra de navegación para resoluciones menores a 992px*/
 @media (max-width: 991px) {
@@ -539,3 +547,4 @@ body.dark .btn-sm:hover {
   }
 
 }
+

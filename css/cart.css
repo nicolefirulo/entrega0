@@ -16,3 +16,12 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/*Style Badge*/
+
+#cartBadge {
+    background-color: #ffaf53be !important;
+    color: white;
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+  }
