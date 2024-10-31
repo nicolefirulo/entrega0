@@ -59,7 +59,6 @@ function updateSubtotal(index) {
 
 document.addEventListener("DOMContentLoaded", () => {
     cartProducts();
-});
 
     // Evento de cambio a cada campo de cantidad
     document.querySelectorAll(".quantity-input").forEach((input) => {
