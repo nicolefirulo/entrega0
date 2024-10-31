@@ -556,3 +556,11 @@ body.dark .btn-sm:hover {
     text-decoration: none; 
 }
 
+/*Style Badge*/
+
+#cartBadge {
+    background-color: #ffaf53be !important;
+    color: white;
+    padding: .15rem .30rem;
+    border-radius: .25rem;
+}

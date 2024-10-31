@@ -441,3 +441,12 @@ body.dark .swal2-popup {
   background-color: #2c2f33; 
   color: #f8f9fa; 
 }
+
+/*Style Badge*/
+
+#cartBadge {
+  background-color: #ffaf53be !important;
+  color: white;
+  padding: .15rem .25rem;
+  border-radius: .25rem;
+}

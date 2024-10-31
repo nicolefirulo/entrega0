@@ -34,4 +34,5 @@ function cartProducts() {
 
 document.addEventListener("DOMContentLoaded", () => {
     cartProducts();
+    actualizarBadgeCarrito(); 
 });

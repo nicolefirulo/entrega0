@@ -79,3 +79,17 @@ login_check();
          localStorage.setItem('dark-mode', 'false');
      }
  });
+
+// Función para actualizar el badge del carrito
+function actualizarBadgeCarrito() {
+  const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+  const badge = document.getElementById("cartBadge");
+  const totalProductos = cart.reduce((acc, producto) => acc + producto.cantidad, 0);
+  if (badge) {
+    badge.textContent = totalProductos;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  actualizarBadgeCarrito();
+});
