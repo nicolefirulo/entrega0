@@ -4,39 +4,35 @@ function cartProducts() {
     let productCard = document.getElementById("cartProducts");
     productCard.innerHTML = "";
     if (cart === null) {
-        productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr>`;
+        productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
     } else {
         productCard.innerHTML += `
         <div class="row text-center">
-            <div class="offset-2 col-md-2 d-none d-md-block"><h5>Nombre</h5></div>
-            <div class="col-4 col-md-2"><h5>Costo</h5></div>
-            <div class="col-4 col-md-2"><h5>Cantidad</h5></div>
-            <div class="col-4 col-md-2"><h5>Subtotal</h5></div>
-        </div><hr>`;
+            <div class="offset-2 col-lg-2 d-none d-lg-block"><h5>Nombre</h5></div>
+            <div class="offset-md-3 offset-lg-0 col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Costo</h5></div>
+            <div class="col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Cantidad</h5></div>
+            <div class="col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Subtotal</h5></div>
+        </div><hr class="col-lg-10 d-none d-md-block">`;
 
         for (let i = 0; i < cart.length; i++) {
             const product = cart[i];
             const subtotal = product.cost * product.cantidad;
 
             productCard.innerHTML += `
-            <div class="row align-items-center text-center mb-3">
-                <div class="col-4 col-md-2 text-center product-info">
-                    <img src="${product.image}" alt="Imagen del producto" class="img-fluid mb-2" style="max-width: 80px;">
-                    <h5 class="d-md-none">${product.name}</h5>
+            <div class="row text-center">
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2 text-center product-info m-0">
+                    <img class="col-12" src="${product.image}" alt="Imagen del producto" class="img-fluid" style="max-width: 80px;">
+                    <h5 class="d-sm-block d-md-block d-lg-none d-none">${product.name}</h5>
                 </div>
-                <h5 class="col-md-2 d-none d-md-block">${product.name}</h5>
-                <p class="col-4 col-md-2">${product.cost} ${product.currency}</p>
-                <div class="col-4 col-md-2 d-flex justify-content-center align-items-center">
-                    <button class="btn btn-outline-primary btn-sm decrease-btn" data-index="${i}">
-                        <i class="bi bi-dash"></i>
-                    </button>
+                <h5 class="d-md-none d-sm-none d-lg-block col-lg-2">${product.name}</h5>
+                <p class="col-4 col-sm-3 col-md-3 col-lg-2">${product.cost} ${product.currency}</p>
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center align-items-center count">
+                    <button class="btn btn-primary btn-sm decrease-btn" data-index="${i}">-</button>
                     <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
-                    <button class="btn btn-outline-primary btn-sm increase-btn" data-index="${i}">
-                        <i class="bi bi-plus"></i>
-                    </button>
+                    <button class="btn btn-primary btn-sm increase-btn" data-index="${i}">+</button>
                 </div>
-                <p class="col-4 col-md-2 subtotal">${subtotal} ${product.currency}</p>    
-            </div><hr>`;
+                <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
+            </div><hr class="col-lg-10">`;
         }
     }
 }
@@ -94,3 +90,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
