@@ -1,3 +1,13 @@
+input {
+    text-align: center;
+    width: 30px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 h2 {
     margin-top: 80px;
     text-align: center;
@@ -7,14 +17,69 @@ h2 {
     justify-content: center;
     align-items: center;
 }
-input {
-    text-align: center;
-    width: 30px;
+
+
+.product-row img {
+    max-width: 80px;
 }
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+
+.quantity-input {
+    width: 50px;
+    max-width: 50px;
+    text-align: center;
+}
+
+
+@media (max-width: 1024px) {
+    .product-row {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 770px) {
+    
+    .header-row .col-md-2:first-child {
+        display: none;
+    }
+    
+   
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+    .headerCantidad, .headerSubtotal {
+        padding-right: 20px;
+        text-align: right;
+    }
+    
+   
+    .count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 320px) {
+    
+    .product-row img {
+        max-width: 50px;
+    }
+
+    .quantity-input {
+        width: 40px;
+    }
+
+
+    .subtotal {
+        font-size: 0.8rem;
+        padding-left: 10px;
+    }
 }
 
 /*Style Badge*/
