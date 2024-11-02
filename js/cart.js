@@ -1,36 +1,39 @@
 let cart = JSON.parse(localStorage.getItem("carrito"));
-// Función para mostrar productos para comprar almacenados en localStorage
+
 function cartProducts() {
     let productCard = document.getElementById("cartProducts");
     productCard.innerHTML = "";
     if (cart === null) {
-        productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr>`;
+        productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
     } else {
         productCard.innerHTML += `
-        <div class="row">
-            <div class="offset-2 col-2"><h5>Nombre</h5></div>
-            <div class="col-2"><h5>Costo</h5></div>
-            <div class="col-2"><h5>Cantidad</h5></div>
-            <div class="col-2"><h5>Subtotal</h5></div>
-        </div><hr>`;
+        <div class="row text-center">
+            <div class="offset-2 col-lg-2 d-none d-lg-block"><h5>Nombre</h5></div>
+            <div class="offset-md-3 offset-lg-0 col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Costo</h5></div>
+            <div class="col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Cantidad</h5></div>
+            <div class="col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Subtotal</h5></div>
+        </div><hr class="col-lg-10 d-none d-md-block">`;
 
-        // Agregar productos al HTML con la funcionalidad de actualización de subtotal
         for (let i = 0; i < cart.length; i++) {
             const product = cart[i];
             const subtotal = product.cost * product.cantidad;
 
             productCard.innerHTML += `
-            <div class="row">
-                <img class="col-2" src="${product.image}" alt="Imagen del producto">
-                <h5 class="col-2">${product.name}</h5>
-                <p class="col-2">${product.cost} ${product.currency}</p>
-                <div class="col-2 count">
+            <div class="row text-center">
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2 text-center product-info m-0">
+                    <img src="${product.image}" alt="Imagen del producto" class="img-fluid">
+                    <h5 class="d-sm-block d-md-block d-lg-none d-none">${product.name}</h5>
+                </div>
+                <h5 class="d-md-none d-sm-none d-lg-block col-lg-2 col-4">${product.name}</h5>
+                <p class="col-4 col-sm-3 col-md-3 col-lg-2">${product.cost} ${product.currency}</p>
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center align-items-center count">
                     <button class="btn btn-primary decrease-btn" data-index="${i}">-</button>
-                    <input type="number" name="cantidad" class="quantity-input" data-index="${i}" value="${product.cantidad}" min="1">
+                    <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
                     <button class="btn btn-primary increase-btn" data-index="${i}">+</button>
                 </div>
-                <p class="col-2 subtotal">${subtotal} ${product.currency}</p>    
-            </div><hr>`;
+                <hr class="col-12 d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
+                <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
+            </div><hr class="col-lg-10">`;
         }
     }
 }

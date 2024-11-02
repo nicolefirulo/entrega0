@@ -70,7 +70,6 @@ function selectedProduct() {
 const commentsURL = PRODUCT_INFO_COMMENTS_URL + id + EXT_TYPE; // Creo URL de comentarios
 
 let existingComments = JSON.parse(localStorage.getItem("comments")) ?? []; // Si JSON.parse devuelve null o undefined, existingComments será un array vacío
-let comments = [];
 
 function showComments(commentsArray) {
   let htmlContentToAppend = "";
@@ -197,7 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  console.log("Cargando comentarios desde localStorage...");
   const localComments = loadCommentsFromLocalStorage(); // Cargar comentarios del localStorage
 
   // Mostrar todos los comentarios (API + localStorage)
@@ -209,8 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-let productInfo;
 
 document.addEventListener("DOMContentLoaded", () => {
   getJSONData(PRODUCT_URL)
