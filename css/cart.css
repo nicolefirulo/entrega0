@@ -24,13 +24,19 @@ h2 {
     background-color: #facd8a;
     border-color: #facd8a;
     color: black;
+    font-size: 1rem;
 }
-
+body.dark .btn-primary {
+    background-color: #facd8a !important;
+    border-color: #facd8a !important;
+    color: black;
+}
 .btn-primary:hover {
     background-color: #facd8a;
     border-color: #facd8a;
     color: black;
 }
+
 @media(min-width: 992px) {
     .articulos {
         margin-left: 15%;

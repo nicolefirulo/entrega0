@@ -27,9 +27,9 @@ function cartProducts() {
                 <h5 class="d-md-none d-sm-none d-lg-block col-lg-2 col-4">${product.name}</h5>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2">${product.cost} ${product.currency}</p>
                 <div class="col-4 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center align-items-center count">
-                    <button class="btn btn-primary btn-sm decrease-btn" data-index="${i}">-</button>
+                    <button class="btn btn-primary decrease-btn" data-index="${i}">-</button>
                     <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
-                    <button class="btn btn-primary btn-sm increase-btn" data-index="${i}">+</button>
+                    <button class="btn btn-primary increase-btn" data-index="${i}">+</button>
                 </div>
                 <hr class="d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
