@@ -20,6 +20,17 @@ h2 {
     text-align: center;
 }
 
+.btn-primary {
+    background-color: #facd8a;
+    border-color: #facd8a;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: #facd8a;
+    border-color: #facd8a;
+    color: black;
+}
 @media(min-width: 992px) {
     .articulos {
         margin-left: 15%;
@@ -44,6 +55,30 @@ h2 {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+@media (max-width: 575px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+    
+    .btn-sm {
+        padding: .25rem .5rem !important;
+    }
+    p.d-block {
+        margin-left: 33%;
+        font-weight: 600;
+    }
+    .sub-text {
+        text-align: right;
+    }
+    .subtotal {
+        font-weight: 600;
     }
 }
 

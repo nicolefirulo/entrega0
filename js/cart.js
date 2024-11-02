@@ -21,16 +21,17 @@ function cartProducts() {
             productCard.innerHTML += `
             <div class="row text-center">
                 <div class="col-4 col-sm-3 col-md-3 col-lg-2 text-center product-info m-0">
-                    <img class="col-12" src="${product.image}" alt="Imagen del producto" class="img-fluid" style="max-width: 80px;">
+                    <img src="${product.image}" alt="Imagen del producto" class="img-fluid">
                     <h5 class="d-sm-block d-md-block d-lg-none d-none">${product.name}</h5>
                 </div>
-                <h5 class="d-md-none d-sm-none d-lg-block col-lg-2">${product.name}</h5>
+                <h5 class="d-md-none d-sm-none d-lg-block col-lg-2 col-4">${product.name}</h5>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2">${product.cost} ${product.currency}</p>
                 <div class="col-4 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center align-items-center count">
                     <button class="btn btn-primary btn-sm decrease-btn" data-index="${i}">-</button>
                     <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
                     <button class="btn btn-primary btn-sm increase-btn" data-index="${i}">+</button>
                 </div>
+                <hr class="d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
             </div><hr class="col-lg-10">`;
         }
