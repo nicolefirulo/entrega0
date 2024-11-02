@@ -1,3 +1,7 @@
+body {
+    font-family: Raleway;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -76,15 +80,34 @@ body.dark .btn-primary {
     .btn-primary {
         padding: .25rem .5rem !important;
     }
+
     p.d-block {
         margin-left: 33%;
         font-weight: 600;
     }
+
     .sub-text {
         text-align: right;
     }
+
     .subtotal {
         font-weight: 600;
+    }
+
+    .sub-text, .subtotal, p.col-4 {
+        margin-bottom: 0;
+    }
+
+    .count {
+        margin-left: 66%;
+    }
+
+    hr.col-12 {
+        width: 94.5%;
+        padding-right: var(--bs-gutter-x,.75rem);
+        padding-left: var(--bs-gutter-x,.75rem);
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

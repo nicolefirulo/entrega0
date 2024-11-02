@@ -31,7 +31,7 @@ function cartProducts() {
                     <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
                     <button class="btn btn-primary increase-btn" data-index="${i}">+</button>
                 </div>
-                <hr class="d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
+                <hr class="col-12 d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
             </div><hr class="col-lg-10">`;
         }

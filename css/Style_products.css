@@ -287,6 +287,10 @@ h2.display-7 {
         color: #000;
         margin-top: 0%;
     }
+    
+    body.dark h3.m-3{
+        color: white;
+    }  
 }
 /*Barra de navegación*/
 .navbar {
