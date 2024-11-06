@@ -24,23 +24,29 @@ h2 {
     text-align: center;
 }
 
-.btn-primary {
+.btn-warning {
     background-color: #facd8a;
     border-color: #facd8a;
     color: black;
     font-size: 1rem;
 }
-body.dark .btn-primary {
+body.dark .btn-warning {
     background-color: #facd8a !important;
     border-color: #facd8a !important;
     color: black;
 }
-.btn-primary:hover {
+.btn-warning:hover {
     background-color: #facd8a;
     border-color: #facd8a;
     color: black;
 }
-
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.fa-trash-o {
+    color: #facd8a;
+}
 @media(min-width: 992px) {
     .articulos {
         margin-left: 15%;
@@ -99,7 +105,7 @@ body.dark .btn-primary {
     }
 
     .count {
-        margin-left: 66%;
+        margin-left: 56%;
     }
 
     hr.col-12 {

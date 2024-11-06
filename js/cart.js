@@ -1,9 +1,11 @@
 let cart = JSON.parse(localStorage.getItem("carrito"));
 //Funcion para mostrar los productos del carrito
 function cartProducts() {
-    let productCard = document.getElementById("cartProducts");
+    const buyingForm = document.getElementById("buyingForm");
+    const productCard = document.getElementById("cartProducts");
     productCard.innerHTML = "";
     if (cart === null) {
+        buyingForm.classList.add("d-none") //Para que no se muestre el formulario de compra
         productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
     } else {
         productCard.innerHTML += `
@@ -27,83 +29,15 @@ function cartProducts() {
                 <h5 class="d-md-none d-sm-none d-lg-block col-lg-2 col-4">${product.name}</h5>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2">${product.cost} ${product.currency}</p>
                 <div class="col-4 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center align-items-center count">
-                    <button class="btn btn-primary decrease-btn" data-index="${i}">-</button>
+                    <button class="btn btn-warning decrease-btn" data-index="${i}">-</button>
                     <input type="number" name="cantidad" class="form-control quantity-input mx-1 text-center" data-index="${i}" value="${product.cantidad}" min="1">
-                    <button class="btn btn-primary increase-btn" data-index="${i}">+</button>
+                    <button class="btn btn-warning increase-btn" data-index="${i}">+</button>
+                    <button class="btn btn-dark"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </div>
                 <hr class="col-12 d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
             </div><hr class="col-lg-10">`;
         }
-        let buyingForm = document.getElementById("buyingForm");
-        buyingForm.innerHTML += `
-        <!--nav-items para la realizacion de la compra-->
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" id="entrega-tab" data-toggle="tab" href="#entrega" role="tab" aria-controls="entrega" aria-selected="true">Entrega</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pago-tab" data-toggle="tab" href="#pago" role="tab" aria-controls="pago" aria-selected="false">Pago</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="resumen-tab" data-toggle="tab" href="#resumen" role="tab" aria-controls="resumen" aria-selected="false">Resumen</a>
-            </li>
-        </ul>
-        <!--Contenido de los nav-items-->
-        <div class="tab-content" id="entregaTab">
-            <div class="tab-pane fade show active" id="entrega" role="tabpanel" aria-labelledby="entrega-tab">
-                <h6>Tipo de envío</h6>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoEnvio" id="standard" value="option1" checked>
-                    <label class="form-check-label" for="standard">
-                        Standard 12 a 15 días (5%)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoEnvio" id="express" value="option2">
-                    <label class="form-check-label" for="express">
-                        Express 5 a 8 días (7%)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoEnvio" id="premium" value="option3">
-                    <label class="form-check-label" for="premium">
-                        Premium 2 a 5 días (15%)
-                    </label>
-                </div>
-                <h6>Dirección de envío</h6>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="Departamento" placeholder="Departamento">
-                    <label for="Departamento">Departamento</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="Localidad" placeholder="Localidad">
-                    <label for="Localidad">Localidad</label>
-                </div>
-                <div class="form-floating">
-                    <input type="number" class="form-control" id="Calle" placeholder="Calle">
-                    <label for="Calle">Calle</label>
-                </div>
-                <div class="form-floating">
-                    <input type="number" class="form-control" id="Número" placeholder="Número">
-                    <label for="Número">Número</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="Esquina" placeholder="Esquina">
-                    <label for="Esquina">Esquina</label>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
-                <div>AAAAAAHHHHHHHH</div>
-            </div>
-            <div class="tab-pane fade" id="resumen" role="tabpanel" aria-labelledby="resumen-tab">
-                <h6>Costos</h6>
-                <div>Subtotal</div>
-                <div>Costo de envío</div>
-                <div>Total</div>
-            </div>
-        </div>
-    </div>`
     }
 }
 
