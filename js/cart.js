@@ -1,5 +1,5 @@
 let cart = JSON.parse(localStorage.getItem("carrito"));
-
+//Funcion para mostrar los productos del carrito
 function cartProducts() {
     let productCard = document.getElementById("cartProducts");
     productCard.innerHTML = "";
@@ -35,6 +35,74 @@ function cartProducts() {
                 <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
             </div><hr class="col-lg-10">`;
         }
+        let buyingForm = document.getElementById("buyingForm");
+        buyingForm.innerHTML += `
+        <!--nav-items para la realizacion de la compra-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#entrega">Entrega</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#pago">Pago</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#resumen">Resumen</a>
+            </li>
+        </ul>
+        <!--Contenido de los nav-items-->
+        <div class="tab-content" id="entregaTab">
+            <div class="tab-pane fade show active" id="entrega" role="tabpanel" aria-labelledby="entrega-tab">
+                <h6>Tipo de envío</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoEnvio" id="standard" value="option1" checked>
+                    <label class="form-check-label" for="standard">
+                        Standard 12 a 15 días (5%)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoEnvio" id="express" value="option2">
+                    <label class="form-check-label" for="express">
+                        Express 5 a 8 días (7%)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoEnvio" id="premium" value="option3">
+                    <label class="form-check-label" for="premium">
+                        Premium 2 a 5 días (15%)
+                    </label>
+                </div>
+                <h6>Dirección de envío</h6>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="Departamento" placeholder="Departamento">
+                    <label for="floatingPassword">Departamento</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="Localidad" placeholder="Localidad">
+                    <label for="Localidad">Localidad</label>
+                </div>
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="Calle" placeholder="Calle">
+                    <label for="Calle">Calle</label>
+                </div>
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="Número" placeholder="Número">
+                    <label for="Número">Número</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="Esquina" placeholder="Esquina">
+                    <label for="Esquina">Esquina</label>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
+                <h6>Contenido de la sección Pago</h6>
+                <p>Aquí puedes mostrar opciones de pago, métodos, y detalles relevantes.</p>
+            </div>
+            <div class="tab-pane fade" id="resumen" role="tabpanel" aria-labelledby="resumen-tab">
+                <h6>Contenido de la sección Resume</h6>
+                <p>En esta sección se puede mostrar un resumen de la información o cualquier otro detalle.</p>
+            </div>
+        </div>
+    </div>`
     }
 }
 
@@ -54,8 +122,8 @@ function updateSubtotal(index) {
     product.cantidad = newQuantity;
     const newSubtotal = product.cost * newQuantity;
     cart[index] = product;
-    localStorage.setItem("carrito", JSON.stringify(cart)); 
-    
+    localStorage.setItem("carrito", JSON.stringify(cart));
+
     const subtotalElement = quantityInput.closest(".row").querySelector(".subtotal");
     subtotalElement.textContent = `${newSubtotal} ${product.currency}`;
 }
