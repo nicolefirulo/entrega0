@@ -40,13 +40,13 @@ function cartProducts() {
         <!--nav-items para la realizacion de la compra-->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#entrega">Entrega</a>
+                <a class="nav-link active" id="entrega-tab" data-toggle="tab" href="#entrega" role="tab" aria-controls="entrega" aria-selected="true">Entrega</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#pago">Pago</a>
+                <a class="nav-link" id="pago-tab" data-toggle="tab" href="#pago" role="tab" aria-controls="pago" aria-selected="false">Pago</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#resumen">Resumen</a>
+                <a class="nav-link" id="resumen-tab" data-toggle="tab" href="#resumen" role="tab" aria-controls="resumen" aria-selected="false">Resumen</a>
             </li>
         </ul>
         <!--Contenido de los nav-items-->
@@ -74,7 +74,7 @@ function cartProducts() {
                 <h6>Dirección de envío</h6>
                 <div class="form-floating">
                     <input type="text" class="form-control" id="Departamento" placeholder="Departamento">
-                    <label for="floatingPassword">Departamento</label>
+                    <label for="Departamento">Departamento</label>
                 </div>
                 <div class="form-floating">
                     <input type="text" class="form-control" id="Localidad" placeholder="Localidad">
@@ -94,12 +94,13 @@ function cartProducts() {
                 </div>
             </div>
             <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
-                <h6>Contenido de la sección Pago</h6>
-                <p>Aquí puedes mostrar opciones de pago, métodos, y detalles relevantes.</p>
+                <div>AAAAAAHHHHHHHH</div>
             </div>
             <div class="tab-pane fade" id="resumen" role="tabpanel" aria-labelledby="resumen-tab">
-                <h6>Contenido de la sección Resume</h6>
-                <p>En esta sección se puede mostrar un resumen de la información o cualquier otro detalle.</p>
+                <h6>Costos</h6>
+                <div>Subtotal</div>
+                <div>Costo de envío</div>
+                <div>Total</div>
             </div>
         </div>
     </div>`
