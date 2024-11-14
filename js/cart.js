@@ -95,3 +95,104 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    /* Obtener los radio buttons */
+    let creditoRadio = document.getElementById('credito');
+    let debitoRadio = document.getElementById('debito');
+
+    /* Obtener los formularios */
+    let debitoForm = document.getElementById('debitoForm');
+    let creditoForm = document.getElementById('creditoForm');
+
+    /* Funcion para mostrar el formulario correcto segun el tipo de pago seleccionado */
+    function mostrarFormulario() {
+        if (creditoRadio.checked) {
+            creditoForm.style.display = 'block';
+            debitoForm.style.display = 'none';
+        } else if (debitoRadio.checked) {
+            debitoForm.style.display = 'block';
+            creditoForm.style.display = 'none';
+        }
+    }
+    creditoRadio.addEventListener('change', mostrarFormulario);
+    debitoRadio.addEventListener('change', mostrarFormulario);
+    mostrarFormulario();
+
+
+    let finalizarCompraBtn = document.getElementById('finalizarCompra');
+  
+    finalizarCompraBtn.addEventListener('click', function () {
+        if (validarFormulario()) {
+            Swal.fire({
+                text: 'Compra exitosa',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+  
+    /* Funcion para validar el formulario antes de finalizar la compra */
+    function validarFormulario() {
+        let valid = true;
+        let errorMessage = '';
+  
+        /* Validar campos de direccion */
+        let direccionCampos = ['departamento', 'localidad', 'calle', 'numero', 'esquina'];
+        let camposVaciosDireccion = [];
+  
+        direccionCampos.forEach(campoId => {
+            let campo = document.getElementById(campoId);
+            if (campo && !campo.value.trim()) {
+                camposVaciosDireccion.push(campoId);
+            }
+        });
+  
+        /* Validacion de los campos de pago */
+        let metodoPagoValido = false;
+  
+        if (creditoRadio.checked) {
+            metodoPagoValido = validarCamposPago(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
+        } else if (debitoRadio.checked) {
+            metodoPagoValido = validarCamposPago(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
+        }
+  
+      /* Verificar si se completaron los campos de pago */
+      let camposVaciosPago = !metodoPagoValido;
+  
+      /* Si hay campos vacios en entrega o pago */
+      if (camposVaciosDireccion.length > 0 && camposVaciosPago) {
+          valid = false;
+          errorMessage = 'Por favor, complete todos los campos';
+      } else if (camposVaciosDireccion.length > 0) {
+          valid = false;
+          errorMessage = 'Por favor, complete todos los campos de dirección';
+      } else if (camposVaciosPago) {
+          valid = false;
+          errorMessage = 'Por favor, complete los campos del método de pago seleccionado';
+      }
+
+      if (!valid) {
+          Swal.fire({
+              text: errorMessage,
+              icon: 'error',
+              confirmButtonText: 'Volver a intentar'
+          });
+      }
+  
+        return valid;
+    }
+
+    /* Funcion para validar los campos del metodo de pago */
+    function validarCamposPago(campos) {
+        let camposVacios = [];
+        campos.forEach(campoId => {
+            let campo = document.getElementById(campoId);
+            if (campo && !campo.value.trim()) {
+                camposVacios.push(campoId);
+            }
+        });
+        return camposVacios.length === 0;
+    }
+});
