@@ -153,22 +153,3 @@ document.addEventListener("DOMContentLoaded", () => {
 const metodoPagoInputs = document.querySelectorAll('input[name="metodoPago"]');
 const formCredito = document.getElementById('formCredito');
 const formTransferencia = document.getElementById('formTransferencia');
-
-function togglePaymentForm(metodoPago) {
-  if (metodoPago === 'credito') {
-      formCredito.classList.remove('d-none');
-      formTransferencia.classList.add('d-none');
-  } else if (metodoPago === 'debito') {
-      formCredito.classList.remove('d-none');
-      formTransferencia.classList.add('d-none');
-  } else {
-      formCredito.classList.add('d-none');
-      formTransferencia.classList.remove('d-none');
-  }
-}
-
-metodoPagoInputs.forEach(input => {
-  input.addEventListener('change', (e) => {
-      togglePaymentForm(e.target.value);
-  });
-});
