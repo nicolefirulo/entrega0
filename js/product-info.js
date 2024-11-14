@@ -248,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
+    actualizarBadgeCarrito()
   }
   document.getElementById("addToCartButton").addEventListener("click", agregarAlCarrito);
 
