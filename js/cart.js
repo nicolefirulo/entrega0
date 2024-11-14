@@ -13,7 +13,7 @@ function cartProducts() {
   const buyingForm = document.getElementById("buyingForm");
   const productCard = document.getElementById("cartProducts");
   productCard.innerHTML = "";
-  if (cart === null) {
+  if (cart.length === 0) {
       buyingForm.classList.add("d-none") // Para que no se muestre el formulario de compra
       productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
   } else {
@@ -107,9 +107,9 @@ function updateCosts() {
   const totalUSD = subtotalUSD + shippingCostUSD;
 
 // Actualizar el DOM
-  document.querySelector('#resumen ul li:nth-child(1)').textContent = `Subtotal: $${subtotalUSD.toFixed(2)} USD`;
-  document.querySelector('#resumen ul li:nth-child(2)').textContent = `Costo de envío: $${shippingCostUSD.toFixed(2)} USD`;
-  document.querySelector('#resumen ul li:nth-child(3)').textContent = `Total: $${totalUSD.toFixed(2)} USD`;
+  document.querySelector('#resumen ul li:nth-child(1)').textContent = `${subtotalUSD.toFixed(2)} USD`;
+  document.querySelector('#resumen ul li:nth-child(2)').textContent = `${shippingCostUSD.toFixed(2)} USD`;
+  document.querySelector('#resumen ul li:nth-child(3)').textContent = `${totalUSD.toFixed(2)} USD`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
