@@ -58,12 +58,19 @@ ul {
 .nav-tabs .nav-link:hover {
     color: gray !important;
 }
+@media(min-width: 575px) {
+    .metodoPagoForm .form-control, .metodoPagoForm .form-select {
+        width: 62%;
+    }
+}
 @media(min-width: 992px) {
     .articulos, #buyingForm {
         margin-left: 15%;
     }
+    .metodoPagoForm .form-control, .metodoPagoForm .form-select {
+        width: 40%;
+    }
 }
-
 @media (max-width: 1024px) {
     .product-row {
         font-size: 15px;
