@@ -141,3 +141,30 @@ ul {
     padding: .15rem .25rem;
     border-radius: .25rem;
   }
+
+
+/* Style para el botón de eliminar */
+.btn-dark {
+    margin-left: 1rem !important;
+    background-color: #facd8a;
+    border: none;
+}
+
+.btn-dark:hover {
+ background-color: #f5c173 !important;
+}
+
+/* Estilo para el icono dentro del botón */
+.btn-dark i {
+    color: #000;
+}
+
+/* Style para el boton eliminar modo oscuro */
+
+body.dark .btn-dark {
+    background-color: #facd8a !important;
+}
+
+body.dark .btn-dark:hover {
+    background-color: #f5c173 !important;
+}
