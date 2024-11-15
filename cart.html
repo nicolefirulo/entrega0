@@ -63,19 +63,19 @@
       </div>
       <div id="buyingForm">
         <!--nav-items para la realizacion de la compra-->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs col-lg-10">
           <li class="nav-item">
-              <a class="nav-link active" id="entrega-tab" data-bs-toggle="pill" href="#entrega" role="tab" aria-controls="entrega" aria-selected="true">Entrega</a>
+              <a class="nav-link p-3 pb-1 active" id="entrega-tab" data-bs-toggle="pill" href="#entrega" role="tab" aria-controls="entrega" aria-selected="true">Entrega</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" id="pago-tab" data-bs-toggle="pill" href="#pago" role="tab" aria-controls="pago" aria-selected="false">Pago</a>
+              <a class="nav-link p-3 pb-1" id="pago-tab" data-bs-toggle="pill" href="#pago" role="tab" aria-controls="pago" aria-selected="false">Pago</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" id="resumen-tab" data-bs-toggle="pill" href="#resumen" role="tab" aria-controls="resumen" aria-selected="false">Resumen</a>
+              <a class="nav-link p-3 pb-1" id="resumen-tab" data-bs-toggle="pill" href="#resumen" role="tab" aria-controls="resumen" aria-selected="false">Resumen</a>
           </li>
       </ul>
       <!--Contenido de los nav-items-->
-      <div class="tab-content" id="entregaTab">
+      <div class="tab-content col-lg-10" id="entregaTab">
           <div class="tab-pane fade show active" id="entrega" role="tabpanel" aria-labelledby="entrega-tab">
             <!--Tipo de envio-->
               <h6>Tipo de envío</h6>
@@ -98,26 +98,28 @@
                   </label>
               </div>
               <h6>Dirección de envío</h6>
-              <div class="form-floating">
-                  <input type="text" class="form-control" id="departamento" placeholder="Departamento" required>
-                  <label for="departamento">Departamento</label>
-              </div>
-              <div class="form-floating">
-                  <input type="text" class="form-control" id="localidad" placeholder="Localidad" required>
-                  <label for="localidad">Localidad</label>
-              </div>
-              <div class="form-floating">
-                  <input type="text" class="form-control" id="calle" placeholder="Calle" required>
-                  <label for="calle">Calle</label>
-              </div>
-              <div class="form-floating">
-                  <input type="number" class="form-control" id="numero" placeholder="Número" required>
-                  <label for="numero">Número</label>
-              </div>
-              <div class="form-floating">
-                  <input type="text" class="form-control" id="esquina" placeholder="Esquina" required>
-                  <label for="esquina">Esquina</label>
-              </div>
+              <div class="row">
+                <div class="form-floating col-sm-5 col-lg-4 my-2">
+                    <input type="text" class="form-control" id="departamento" placeholder="Departamento" required>
+                    <label class="ms-2" for="departamento">Departamento</label>
+                </div>
+                <div class="form-floating col-sm-5 col-lg-4 my-2">
+                    <input type="text" class="form-control" id="localidad" placeholder="Localidad" required>
+                    <label class="ms-2" for="localidad">Localidad</label>
+                </div>
+                <div class="form-floating col-sm-5 col-lg-4 my-2">
+                    <input type="text" class="form-control" id="calle" placeholder="Calle" required>
+                    <label class="ms-2" for="calle">Calle</label>
+                </div>
+                <div class="form-floating col-sm-5 col-lg-4 my-2">
+                    <input type="number" class="form-control" id="numero" placeholder="Número" required>
+                    <label class="ms-2" for="numero">Número</label>
+                </div>
+                <div class="form-floating col-sm-5 col-lg-4 my-2">
+                    <input type="text" class="form-control" id="esquina" placeholder="Esquina" required>
+                    <label class="ms-2" for="esquina">Esquina</label>
+                </div>
+            </div>
           </div>
           <!-- Forma de pago -->
           <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
@@ -135,34 +137,34 @@
                 </label>
             </div>
             <!-- Contenido de las distintas tarjetas -->
-            <div id="debitoForm" class="metodoPagoForm" >
+            <div id="debitoForm" class="metodoPagoForm row" >
                 <!-- Formulario para débito -->
                 <div>
-                    <label for="numeroD">Número</label>
+                    <label class="col-12 m-2" for="numeroD">Número</label>
                     <input type="number" id="numeroD" name="numeroD">
                 </div>
                 <div>
-                    <label for="nombreD">Nombre y Apellido que figura en la tarjeta</label>
+                    <label class="col-12 m-2" for="nombreD">Nombre y Apellido que figura en la tarjeta</label>
                     <input type="text" id="nombreD" name="nombreD">
                 </div>
                 <div>
-                    <label for="vencimientoD">Fecha de Vencimiento</label>
+                    <label class="col-12 m-2" for="vencimientoD">Fecha de Vencimiento</label>
                     <input type="month" id="vencimientoD" name="vencimientoD">
                 </div>
                 <div>
-                    <label for="codigoD">Código de seguridad</label>
+                    <label class="col-12 m-2" for="codigoD">Código de seguridad</label>
                     <input type="number" id="codigoD" name="codigoD">
                 </div>
             </div>
 
-            <div id="creditoForm" class="metodoPagoForm">
+            <div id="creditoForm" class="metodoPagoForm row">
                 <!-- Formulario para crédito -->
                 <div>
-                    <label for="numeroC">Número</label>
+                    <label class="col-12 m-2" for="numeroC">Número</label>
                     <input type="number" id="numeroC" name="numeroC">
                 </div>
                 <div>
-                    <label for="cuotas">Cuotas disponibles</label>
+                    <label class="col-12 m-2" for="cuotas">Cuotas disponibles</label>
                     <select name="cuotas" id="cuotas">
                         <option value="none">¿En cuántas cuotas deseas pagar?</option>
                         <option value="1">1 cuota</option>
@@ -172,15 +174,15 @@
                     </select>
                 </div>
                 <div>
-                    <label for="nombreC">Nombre y Apellido que figura en la tarjeta</label>
+                    <label class="col-12 m-2" for="nombreC">Nombre y Apellido que figura en la tarjeta</label>
                     <input type="text" id="nombreC" name="nombreC">
                 </div>
                 <div>
-                    <label for="vencimientoC">Fecha de Vencimiento</label>
+                    <label class="col-12 m-2" for="vencimientoC">Fecha de Vencimiento</label>
                     <input type="month" id="vencimientoC" name="vencimientoC">
                 </div>
                 <div>
-                    <label for="codigoC">Código de seguridad</label>
+                    <label class="col-12 m-2" for="codigoC">Código de seguridad</label>
                     <input type="number" id="codigoC" name="codigoC">
                 </div>
             </div>
@@ -202,8 +204,8 @@
                 <li>aquí va el total</li>
               </ul>
             </div>
-            <button type="button" id="finalizarCompra" class="btn btn-warning">Finalizar compra</button>
           </div>
+            <button type="button" id="finalizarCompra" class="btn btn-warning mt-md-5">Finalizar compra</button>          
           </div>
       </div>
   </div>
