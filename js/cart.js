@@ -111,9 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (creditoRadio.checked) {
             creditoForm.style.display = 'block';
             debitoForm.style.display = 'none';
+            limpiarCampos(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
         } else if (debitoRadio.checked) {
             debitoForm.style.display = 'block';
             creditoForm.style.display = 'none';
+            limpiarCampos(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
         }
     }
     creditoRadio.addEventListener('change', mostrarFormulario);
@@ -195,4 +197,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         return camposVacios.length === 0;
     }
+
+    function limpiarCampos(campos) {
+      campos.forEach(campoId => {
+          let campo = document.getElementById(campoId);
+          if (campo) campo.value = '';
+      });
+  }
 });
