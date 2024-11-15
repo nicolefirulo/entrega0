@@ -11,8 +11,12 @@ input[type="number"]::-webkit-inner-spin-button {
 h2 {
     margin-top: 80px;
     text-align: center;
+    font-weight: 700;
 }
-
+h6 {
+    margin-top: 1rem;
+    font-weight: bold;
+}
 .row {
     display: flex;
     align-items: center;
@@ -47,20 +51,33 @@ ul {
 .fa-trash-o {
     color: #facd8a;
 }
-@media(min-width: 992px) {
-    .articulos {
-        margin-left: 15%;
+.nav-tabs .nav-link {
+    background-color:#facd8a;
+    color: black;
+}
+.nav-tabs .nav-link:hover {
+    color: gray !important;
+}
+@media(min-width: 575px) {
+    .metodoPagoForm .form-control, .metodoPagoForm .form-select {
+        width: 62%;
     }
 }
-
+@media(min-width: 992px) {
+    .articulos, #buyingForm {
+        margin-left: 15%;
+    }
+    .metodoPagoForm .form-control, .metodoPagoForm .form-select {
+        width: 40%;
+    }
+}
 @media (max-width: 1024px) {
     .product-row {
         font-size: 15px;
     }
 }
 
-@media (max-width: 770px) {
-      
+@media (max-width: 770px) {    
     .product-info {
         display: flex;
         flex-direction: column;
@@ -110,8 +127,8 @@ ul {
 
     hr.col-12 {
         width: 94.5%;
-        padding-right: var(--bs-gutter-x,.75rem);
-        padding-left: var(--bs-gutter-x,.75rem);
+        padding-right: var(--bs-gutter-x, .75rem);
+        padding-left: var(--bs-gutter-x, .75rem);
         margin-left: auto;
         margin-right: auto;
     }
@@ -141,30 +158,3 @@ ul {
     padding: .15rem .25rem;
     border-radius: .25rem;
   }
-
-
-/* Style para el botón de eliminar */
-.btn-dark {
-    margin-left: 1rem !important;
-    background-color: #facd8a;
-    border: none;
-}
-
-.btn-dark:hover {
- background-color: #f5c173 !important;
-}
-
-/* Estilo para el icono dentro del botón */
-.btn-dark i {
-    color: #000;
-}
-
-/* Style para el boton eliminar modo oscuro */
-
-body.dark .btn-dark {
-    background-color: #facd8a !important;
-}
-
-body.dark .btn-dark:hover {
-    background-color: #f5c173 !important;
-}
