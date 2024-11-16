@@ -58,9 +58,22 @@ ul {
 .nav-tabs .nav-link:hover {
     color: gray !important;
 }
+.form-check-input:checked {
+    background-color: #f78418;
+    border-color: #f78418;
+    box-shadow: none;
+}
 @media(min-width: 575px) {
     .metodoPagoForm .form-control, .metodoPagoForm .form-select {
         width: 62%;
+    }
+    input#vencimientoC.form-control, input#vencimientoD.form-control, input#codigoC.form-control, input#codigoD.form-control {
+        width: 35%;
+    }
+}
+@media(min-width: 767px) {
+    input#vencimientoC.form-control, input#vencimientoD.form-control, input#codigoC.form-control, input#codigoD.form-control {
+        width: 25%;
     }
 }
 @media(min-width: 992px) {
@@ -149,7 +162,21 @@ ul {
         padding-left: 10px;
     }
 }
-
+:root {
+    --main-bg-color: #f8f9fa;
+    --color: #2c2f33;
+  }
+  body.dark {
+    --main-bg-color: #2c2f33;
+    --color: #f8f9fa;
+  }
+.swal2-confirm.swal2-styled {
+    background: #f78418;
+}
+div:where(.swal2-container) div:where(.swal2-popup){
+    background-color: var(--main-bg-color) !important;
+    color: var(--color) !important;
+}
 /*Style Badge*/
 
 #cartBadge {
