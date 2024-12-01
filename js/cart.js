@@ -12,7 +12,7 @@ function convertToUSD(amount, currency) {
 // Función para eliminar un producto
 function eliminarProducto(index) {
   cart.splice(index, 1);
-  localStorage.setItem("carrito", JSON.stringify(cart)); 
+  localStorage.setItem("carrito", JSON.stringify(cart));
   cartProducts();
   actualizarBadgeCarrito();
   updateCosts();
@@ -23,10 +23,10 @@ function cartProducts() {
   const productCard = document.getElementById("cartProducts");
   productCard.innerHTML = "";
   if (cart.length === 0) {
-      buyingForm.classList.add("d-none") // Para que no se muestre el formulario de compra
-      productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
+    buyingForm.classList.add("d-none") // Para que no se muestre el formulario de compra
+    productCard.innerHTML += `<div class="row"><p>No hay productos en el carrito.</p></div><hr class="col-lg-10">`;
   } else {
-      productCard.innerHTML += `
+    productCard.innerHTML += `
       <div class="row text-center">
           <div class="offset-2 col-lg-2 d-none d-lg-block"><h5>Nombre</h5></div>
           <div class="offset-md-3 offset-lg-0 col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Costo</h5></div>
@@ -34,11 +34,11 @@ function cartProducts() {
           <div class="col-4 col-lg-2 col-md-3 d-none d-md-block"><h5>Subtotal</h5></div>
       </div><hr class="col-lg-10 d-none d-md-block">`;
 
-      for (let i = 0; i < cart.length; i++) {
-          const product = cart[i];
-          const subtotal = product.cost * product.cantidad;
+    for (let i = 0; i < cart.length; i++) {
+      const product = cart[i];
+      const subtotal = product.cost * product.cantidad;
 
-          productCard.innerHTML += `
+      productCard.innerHTML += `
           <div class="row text-center">
               <div class="col-4 col-sm-3 col-md-3 col-lg-2 text-center product-info m-0">
                   <img src="${product.image}" alt="Imagen del producto" class="img-fluid">
@@ -55,7 +55,7 @@ function cartProducts() {
               <hr class="col-12 d-block d-sm-none"><p class="d-block d-sm-none d-md-none d-lg-none col-4 sub-text">Subtotal</p>
               <p class="col-4 col-sm-3 col-md-3 col-lg-2 subtotal">${subtotal} ${product.currency}</p>  
           </div><hr class="col-lg-10">`;
-      }
+    }
   }
   updateCosts(); // Actualizar los costos después de mostrar los productos
 }
@@ -66,8 +66,8 @@ function updateSubtotal(index) {
   let newQuantity = parseInt(quantityInput.value);
 
   if (newQuantity < 1 || isNaN(newQuantity)) {
-      newQuantity = 1;
-      quantityInput.value = 1;
+    newQuantity = 1;
+    quantityInput.value = 1;
   }
 
   product.cantidad = newQuantity;
@@ -85,18 +85,18 @@ function updateSubtotal(index) {
 function updateCosts() {
   let subtotalUSD = 0;
 
-// Calcular subtotal
+  // Calcular subtotal
   cart.forEach(product => {
     subtotalUSD += convertToUSD(product.cost * product.cantidad, product.currency);
   });
 
-// Obtener opción de envío seleccionada
+  // Obtener opción de envío seleccionada
   const shippingOptions = document.getElementsByName('tipoEnvio');
   let shippingPercentage = 0.05; // Valor por defecto (5%)
 
   for (const option of shippingOptions) {
     if (option.checked) {
-      switch(option.value) {
+      switch (option.value) {
         case 'option1':
           shippingPercentage = 0.05;
           break;
@@ -111,11 +111,11 @@ function updateCosts() {
     }
   }
 
-// Calcular costo de envío y total
+  // Calcular costo de envío y total
   const shippingCostUSD = subtotalUSD * shippingPercentage;
   const totalUSD = subtotalUSD + shippingCostUSD;
 
-// Actualizar el DOM
+  // Actualizar el DOM
   document.querySelector('#resumen ul li:nth-child(1)').textContent = `${subtotalUSD.toFixed(2)} USD`;
   document.querySelector('#resumen ul li:nth-child(2)').textContent = `${shippingCostUSD.toFixed(2)} USD`;
   document.querySelector('#resumen ul li:nth-child(3)').textContent = `${totalUSD.toFixed(2)} USD`;
@@ -125,156 +125,141 @@ document.addEventListener("DOMContentLoaded", () => {
   cartProducts();
 
   document.querySelectorAll(".quantity-input").forEach((input) => {
-      input.addEventListener("input", (event) => {
-          const index = event.target.getAttribute("data-index");
-          updateSubtotal(index);
-      });
+    input.addEventListener("input", (event) => {
+      const index = event.target.getAttribute("data-index");
+      updateSubtotal(index);
+    });
   });
 
   document.querySelectorAll(".decrease-btn").forEach((button) => {
-      button.addEventListener("click", (event) => {
-          const index = event.target.getAttribute("data-index");
-          const input = document.querySelector(`input[data-index="${index}"]`);
-          input.stepDown();
-          if (parseInt(input.value) < 1) input.value = 1;
-          input.dispatchEvent(new Event('input'));
-      });
+    button.addEventListener("click", (event) => {
+      const index = event.target.getAttribute("data-index");
+      const input = document.querySelector(`input[data-index="${index}"]`);
+      input.stepDown();
+      if (parseInt(input.value) < 1) input.value = 1;
+      input.dispatchEvent(new Event('input'));
+    });
   });
 
   document.querySelectorAll(".increase-btn").forEach((button) => {
-      button.addEventListener("click", (event) => {
-          const index = event.target.getAttribute("data-index");
-          const input = document.querySelector(`input[data-index="${index}"]`);
-          input.stepUp();
-          input.dispatchEvent(new Event('input'));
-      });
+    button.addEventListener("click", (event) => {
+      const index = event.target.getAttribute("data-index");
+      const input = document.querySelector(`input[data-index="${index}"]`);
+      input.stepUp();
+      input.dispatchEvent(new Event('input'));
+    });
   });
 
-// Event listeners para las opciones de envío
+  // Event listeners para las opciones de envío
   document.querySelectorAll('input[name="tipoEnvio"]').forEach(radio => {
     radio.addEventListener('change', updateCosts);
   });
 
-// Llamada inicial a updateCosts
+  // Llamada inicial a updateCosts
   updateCosts();
-});
 
-const metodoPagoInputs = document.querySelectorAll('input[name="metodoPago"]');
-const formCredito = document.getElementById('formCredito');
-const formTransferencia = document.getElementById('formTransferencia');
+  /* Obtener los radio buttons */
+  let creditoRadio = document.getElementById('credito');
+  let debitoRadio = document.getElementById('debito');
 
-document.addEventListener('DOMContentLoaded', function () {
-    /* Obtener los radio buttons */
-    let creditoRadio = document.getElementById('credito');
-    let debitoRadio = document.getElementById('debito');
+  /* Obtener los formularios */
+  let debitoForm = document.getElementById('debitoForm');
+  let creditoForm = document.getElementById('creditoForm');
 
-
-    /* Obtener los formularios */
-    let debitoForm = document.getElementById('debitoForm');
-    let creditoForm = document.getElementById('creditoForm');
-
-
-    /* Funcion para mostrar el formulario correcto segun el tipo de pago seleccionado */
-    function mostrarFormulario() {
-        if (creditoRadio.checked) {
-            creditoForm.style.display = 'block';
-            debitoForm.style.display = 'none';
-            limpiarCampos(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
-        } else if (debitoRadio.checked) {
-            debitoForm.style.display = 'block';
-            creditoForm.style.display = 'none';
-            limpiarCampos(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
-        }
+  /* Funcion para mostrar el formulario correcto segun el tipo de pago seleccionado */
+  function mostrarFormulario() {
+    if (creditoRadio.checked) {
+      creditoForm.style.display = 'block';
+      debitoForm.style.display = 'none';
+      limpiarCampos(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
+    } else if (debitoRadio.checked) {
+      debitoForm.style.display = 'block';
+      creditoForm.style.display = 'none';
+      limpiarCampos(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
     }
-    creditoRadio.addEventListener('change', mostrarFormulario);
-    debitoRadio.addEventListener('change', mostrarFormulario);
-    mostrarFormulario();
+  }
+  creditoRadio.addEventListener('change', mostrarFormulario);
+  debitoRadio.addEventListener('change', mostrarFormulario);
+  mostrarFormulario();
 
+  let finalizarCompraBtn = document.getElementById('finalizarCompra');
 
-
-
-    let finalizarCompraBtn = document.getElementById('finalizarCompra');
- 
-    finalizarCompraBtn.addEventListener('click', function () {
-        if (validarFormulario()) {
-            Swal.fire({
-                text: 'Compra exitosa',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        }
-    });
- 
-    /* Funcion para validar el formulario antes de finalizar la compra */
-    function validarFormulario() {
-        let valid = true;
-        let errorMessage = '';
- 
-        /* Validar campos de direccion */
-        let direccionCampos = ['departamento', 'localidad', 'calle', 'numero', 'esquina'];
-        let camposVaciosDireccion = [];
- 
-        direccionCampos.forEach(campoId => {
-            let campo = document.getElementById(campoId);
-            if (campo && !campo.value.trim()) {
-                camposVaciosDireccion.push(campoId);
-            }
-        });
- 
-        /* Validacion de los campos de pago */
-        let metodoPagoValido = false;
- 
-        if (creditoRadio.checked) {
-            metodoPagoValido = validarCamposPago(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
-        } else if (debitoRadio.checked) {
-            metodoPagoValido = validarCamposPago(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
-        }
- 
-      /* Verificar si se completaron los campos de pago */
-      let camposVaciosPago = !metodoPagoValido;
- 
-      /* Si hay campos vacios en entrega o pago */
-      if (camposVaciosDireccion.length > 0 && camposVaciosPago) {
-          valid = false;
-          errorMessage = 'Por favor, complete todos los campos';
-      } else if (camposVaciosDireccion.length > 0) {
-          valid = false;
-          errorMessage = 'Por favor, complete todos los campos de dirección';
-      } else if (camposVaciosPago) {
-          valid = false;
-          errorMessage = 'Por favor, complete los campos del método de pago seleccionado';
-      }
-
-
-      if (!valid) {
-          Swal.fire({
-              text: errorMessage,
-              icon: 'error',
-              confirmButtonText: 'Volver a intentar'
-          });
-      }
- 
-        return valid;
-    }
-
-
-    /* Funcion para validar los campos del metodo de pago */
-    function validarCamposPago(campos) {
-        let camposVacios = [];
-        campos.forEach(campoId => {
-            let campo = document.getElementById(campoId);
-            if (campo && !campo.value.trim()) {
-                camposVacios.push(campoId);
-            }
-        });
-        return camposVacios.length === 0;
-    }
-
-
-    function limpiarCampos(campos) {
-      campos.forEach(campoId => {
-          let campo = document.getElementById(campoId);
-          if (campo) campo.value = '';
+  finalizarCompraBtn.addEventListener('click', function () {
+    if (validarFormulario()) {
+      Swal.fire({
+        text: 'Compra exitosa',
+        icon: 'success',
+        confirmButtonText: 'OK'
       });
+    }
+  });
+
+  /* Funcion para validar el formulario antes de finalizar la compra */
+  function validarFormulario() {
+    let valid = true;
+    let errorMessage = '';
+
+    /* Validar campos de direccion */
+    let direccionCampos = ['departamento', 'localidad', 'calle', 'numero', 'esquina'];
+    let camposVaciosDireccion = [];
+
+    direccionCampos.forEach(campoId => {
+      let campo = document.getElementById(campoId);
+      if (campo && !campo.value.trim()) {
+        camposVaciosDireccion.push(campoId);
+      }
+    });
+
+    /* Validacion de los campos de pago */
+    let metodoPagoValido = false;
+
+    if (creditoRadio.checked) {
+      metodoPagoValido = validarCamposPago(['numeroC', 'nombreC', 'vencimientoC', 'codigoC', 'cuotas']);
+    } else if (debitoRadio.checked) {
+      metodoPagoValido = validarCamposPago(['numeroD', 'nombreD', 'vencimientoD', 'codigoD']);
+    }
+
+    /* Verificar si se completaron los campos de pago */
+    let camposVaciosPago = !metodoPagoValido;
+
+    /* Si hay campos vacios en entrega o pago */
+    if (camposVaciosDireccion.length > 0 && camposVaciosPago) {
+      valid = false;
+      errorMessage = 'Por favor, complete todos los campos';
+    } else if (camposVaciosDireccion.length > 0) {
+      valid = false;
+      errorMessage = 'Por favor, complete todos los campos de dirección';
+    } else if (camposVaciosPago) {
+      valid = false;
+      errorMessage = 'Por favor, complete los campos del método de pago seleccionado';
+    }
+
+    if (!valid) {
+      Swal.fire({
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Volver a intentar'
+      });
+    }
+    return valid;
+  }
+
+  /* Funcion para validar los campos del metodo de pago */
+  function validarCamposPago(campos) {
+    let camposVacios = [];
+    campos.forEach(campoId => {
+      let campo = document.getElementById(campoId);
+      if (campo && !campo.value.trim()) {
+        camposVacios.push(campoId);
+      }
+    });
+    return camposVacios.length === 0;
+  }
+
+  function limpiarCampos(campos) {
+    campos.forEach(campoId => {
+      let campo = document.getElementById(campoId);
+      if (campo) campo.value = '';
+    });
   }
 });
